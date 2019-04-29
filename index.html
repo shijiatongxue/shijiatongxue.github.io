@@ -18,15 +18,17 @@
     p{
       font-size: 18px;
       font-family: Arial, Helvetica, sans-serif, "微软雅黑", "宋体";
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
     .header{
       background-color: #263238;
       width: 100%;
-      height: 400px;
+      height: 380px;
     }
     .main{
       background-color: #c8e6c9;
-      width: 760px;
+      width: 60%;
       margin-top: 0;
       margin-right: auto;
       margin-left: auto;
@@ -36,12 +38,21 @@
       padding-top: 15px;
       padding-bottom: 15px;
     }
-    .intro p{
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
     .line{
       border-bottom:1px #90caf9 solid;
+    }
+    #title p{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-size: 40px;
+      margin: 0 auto 0 auto;
+      text-align: center;
+    }
+    li{
+      list-style-position: inside;
+    }
+    .footer p{
+      text-align: center;
     }
   </style>
   <body>
@@ -63,9 +74,21 @@
             <p>2019年4月：我在云雀开通了个人博客。</p>
           </div>
         </div>
-        <div class="line"></div>
+        <div class="book">
+          <div id=title>
+            <p>我的好书</p>
+          </div>
+          <div>
+            <ol>
+              <li>算法图解，A. Bhargava 2019.4</li>
+            </ol>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+      <div class="line"></div>
+      <p>powered by Shi Jia<p>
+    </div>
   </body>
 </html>
