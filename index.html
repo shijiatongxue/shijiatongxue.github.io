@@ -3,60 +3,21 @@
   <head>
     <title>Welcome to Shi Jia's Page.</title>
   </head>
-  <style>
-    /* reset style*/
-    html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote{
-      margin: 0;
-      padding: 0;
-      font-size: 100%;
-      font-weight: normal;
-    }
-    /* reset style*/
-    html{
-      background-color: #e3f2fd;
-    }
-    p{
-      font-size: 18px;
-      font-family: Arial, Helvetica, sans-serif, "微软雅黑", "宋体";
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-    .header{
-      background-color: #263238;
-      width: 100%;
-      height: 380px;
-    }
-    .main{
-      background-color: #c8e6c9;
-      width: 60%;
-      margin-top: 0;
-      margin-right: auto;
-      margin-left: auto;
-      padding: 15px;
-    }
-    .intro div{
-      padding-top: 15px;
-      padding-bottom: 15px;
-    }
-    .line{
-      border-bottom:1px #90caf9 solid;
-    }
-    #title p{
-      padding-top: 15px;
-      padding-bottom: 15px;
-      font-size: 40px;
-      margin: 0 auto 0 auto;
-      text-align: center;
-    }
-    li{
-      list-style-position: inside;
-    }
-    .footer p{
-      text-align: center;
-    }
-  </style>
+  <link href="styles/main.css" rel="stylesheet" type="text/css">
   <body>
-    <div class="header">About me</div>
+    <div class="header">
+      <div class="container">
+        <div class="left">
+          <img src="images/me.jpg" alt="My photo">
+        </div>
+        <div class="left" id="myself">
+          <p id="name">石嘉同学</p>
+          <p>华中科技大学计算机硕士</p>
+          <p>shijia@hust.edu.cn</p>
+          <p><a href="https://github.com/shijiatongxue" target="blank"><img class="small" src="images/github.png" alt="github logo" ></a></p> 
+        </div>
+      </div>
+    </div>
     <div class="main">
       <div class="containner">
         <div class="intro">
@@ -71,23 +32,28 @@
           </div>
           <div>
             <p><strong>新闻：</strong></p>
-            <p>2019年4月：我在云雀开通了个人博客。</p>
+            <p>2019年4月：我在<a href="https://www.yuque.com/shijiatongxue" target="blank">云雀</a>开通了个人博客。</p>
           </div>
         </div>
+        <div class="line"></div>
         <div class="book">
-          <div id=title>
-            <p>我的好书</p>
-          </div>
-          <div>
+            <p class="large">我的好书</p>
             <ol>
-              <li>算法图解，A. Bhargava 2019.4</li>
+              <li>CSS实战手册，在读</li>
+              <li>算法图解，2019.4</li>
             </ol>
-          </div>
         </div>
+        <div class="line"></div>
+        <div class="plan">
+          <p class="large">计划清单</p>
+          <ul>
+            <li>搭建一个属于自己的网站。</li>
+          </ul>
+        </div>
+        <div class="line"></div>
       </div>
     </div>
     <div class="footer">
-      <div class="line"></div>
       <p>powered by Shi Jia<p>
     </div>
   </body>

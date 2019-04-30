@@ -1,0 +1,83 @@
+/* reset style*/
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote{
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-weight: normal;
+}
+/* reset style*/
+html{
+    background-color: #FFF;
+}
+div .left{
+    float: left;
+}
+p{
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif, "微软雅黑", "宋体";
+    padding: 5px 0;
+}
+a{
+    text-decoration-line: none;
+    color: #1e88e5;
+}
+li{
+    list-style-position: inside;
+    padding: 5px 0;
+}
+.line{
+    border-bottom:1px #000 solid;
+    margin: 20px 0;
+}
+.header{
+    background: #263238 url(../images/bg_sky.jpg) fixed top center repeat-x;
+    width: 100%;
+    height: 380px;
+}
+.header .container{
+    min-width: 450px;
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    padding:150px 15px 0 15px;
+}
+.header img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border: 3px #FFF solid;
+}
+.header img.small{
+    width: 50px;
+    height: 50px;
+    border: none;
+}
+.header #name{
+    font-size: 2em;
+}
+.header #myself{
+    padding-top: 10px;
+    padding-left: 20px;
+    color: #FFF;
+}
+.main{
+    background-color: #FFF;
+    width: 60%;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 15px;  /*中间部分顶部空隙*/
+}
+.intro div{
+    padding: 10px 0;
+}
+p.large{
+    padding-top: 0; /*由于分割线已经有margin，这里不用再设置padding了*/
+    padding-bottom: 15px;
+    font-size: 40px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+.footer p{
+    text-align: center;
+}
