@@ -33,7 +33,6 @@ li{
     height: 380px;
 }
 .header .container{
-    min-width: 485px;
     width: 60%;
     height: 100%;
     margin: 0 auto;
@@ -73,6 +72,9 @@ li{
 .intro div{
     padding: 10px 0;
 }
+.intro #myname{
+    display: none;
+}
 p.large{
     padding-top: 0; /*由于分割线已经有margin，这里不用再设置padding了*/
     padding-bottom: 15px;
@@ -82,4 +84,21 @@ p.large{
 }
 .footer p{
     text-align: center;
+}
+@media (max-width: 768px){
+    .container #myself{
+        display: none;
+    }
+    /*头部姓名消失的时候，头像居中，下部显示出姓名*/
+    .container #myphoto{
+        display: inline-block;
+    }
+    .header{
+        text-align: center;
+    }
+    /*内容区域居中显示姓名*/
+    .intro #myname{
+        display: block;
+        text-align: center;
+    }
 }
