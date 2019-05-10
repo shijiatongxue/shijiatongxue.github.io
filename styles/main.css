@@ -10,10 +10,6 @@ html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable,
 html{
     background-color: #FFF;
 }
-/*头部不使用浮动
-div .left{
-    float: left;
-}*/
 p{
     font-size: 1em;
     font-family: Arial, Helvetica, sans-serif, "微软雅黑", "宋体";
@@ -37,7 +33,7 @@ li{
     height: 380px;
 }
 .header .container{
-    min-width: 450px;
+    min-width: 485px;
     width: 60%;
     height: 100%;
     margin: 0 auto;
