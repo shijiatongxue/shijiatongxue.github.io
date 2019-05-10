@@ -1,12 +1,11 @@
-/* reset style*/
+/*重设样式*/
 html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote{
     margin: 0;
     padding: 0;
     font-size: 100%;
     font-weight: normal;
 }
-/* reset style*/
-
+/*基本样式*/
 html{
     background-color: #FFF;
 }
@@ -23,14 +22,15 @@ li{
     list-style-position: inside;
     padding: 5px 0;
 }
+/*样式*/
 .line{
     border-bottom:1px #000 solid;
     margin: 20px 0;
 }
 .header{
-    background: #263238 url(../images/bg_sky.jpg) fixed top center repeat-x;
+    background: #263238 url(../images/bg_sky.jpg) fixed top center no-repeat;
+    background-size: auto auto;
     width: 100%;
-    height: 380px;
 }
 .header .container{
     width: 60%;
@@ -95,6 +95,10 @@ p.large{
     }
     .header{
         text-align: center;
+        height: 210px;
+    }
+    .header .container{
+        padding: 2px;
     }
     /*内容区域居中显示姓名*/
     .intro #myname{
