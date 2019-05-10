@@ -6,12 +6,14 @@ html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable,
     font-weight: normal;
 }
 /* reset style*/
+
 html{
     background-color: #FFF;
 }
+/*头部不使用浮动
 div .left{
     float: left;
-}
+}*/
 p{
     font-size: 1em;
     font-family: Arial, Helvetica, sans-serif, "微软雅黑", "宋体";
@@ -41,6 +43,9 @@ li{
     margin: 0 auto;
     padding:150px 15px 0 15px;
 }
+.header #myphoto{
+    display: inline-block;
+}
 .header img{
     width: 200px;
     height: 200px;
@@ -56,6 +61,7 @@ li{
     font-size: 2em;
 }
 .header #myself{
+    display: inline-block;
     padding-top: 10px;
     padding-left: 20px;
     color: #FFF;
