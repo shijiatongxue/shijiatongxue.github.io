@@ -43,9 +43,9 @@
                     </tbody>
                 </table>
                 <div>总价：￥ {{totalPrice}}</div>
+                选择所有 <input type="checkbox" @click="selectAll()">
             </template>
             <div v-else>购物车为空</div>
-            选择所有 <input type="checkbox" @click="selectAll()">
         </div>
         <script src="./js/vue.min.js"></script>
         <script src="./js/shopping_cart.js"></script>
