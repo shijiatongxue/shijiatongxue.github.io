@@ -60,8 +60,6 @@ var app = new Vue({
                 for (var i = 0, len = this.list.length; i < len; i++){
                     this.list[i].selected = true;
                 }
-            }
-            
         }
     }
 });
