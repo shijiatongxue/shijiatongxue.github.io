@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>显示当前</title>
+    <style>
+        div{
+            width: 800px;
+            margin: 200px auto;
+            color: #333;
+            font-size: 30px;
+            font-family: "simsun";
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // TODO:模拟日历
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var weekday = date.getDay();
+        var arr = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+        var div = document.getElementsByTagName("div")[0];
+        div.innerText = "北京时间：" + [year, month, day].join('-') + " (" + arr[weekday] + ")";
+    </script>
+</body>
+</html>
