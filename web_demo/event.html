@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <meta charset="utf-8">
+        <title>事件处理</title>
+        <style>
+            #box{
+                background-color: #333;
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+        <script>
+            var div1 = document.getElementById("box");
+            div1.onclick = function(){
+                div1.style.width = "300px";
+                div1.style.height = "300px";
+                div1.style.backgroundColor = "red";
+            }
+        </script>
+    </body>
+</html>
