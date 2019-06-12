@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <meta charset="utf-8">
+        <title>事件对象的eventPhase</title>
+    </head>
+    <body>
+        <button>点击我吧</button>
+        <script>
+            var btn = document.getElementsByTagName("button")[0];
+            // 其次显示2，代表目标对象
+            btn.onclick = function(){
+                alert(event.eventPhase);
+            };
+            // 首先显示1，代表捕获阶段
+            document.body.addEventListener("click", function(){
+                alert(event.eventPhase);
+            }, true);
+            // 最先显示3, 代表冒泡阶段
+            document.body.onclick = function(){
+                alert(event.eventPhase);
+            };
+        </script>
+    </body>
+</html>
