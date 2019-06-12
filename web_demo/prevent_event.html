@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>阻止超链接的跳转</title>
+    </head>
+    <body>
+        <a href="https://github.com">点击不会跳转</a>
+        <script>
+            var link = document.getElementsByTagName("a")[0];
+            link.onclick = function(event){
+            alert("clicked!");
+            event.preventDefault();
+            }            
+        </script>
+    </body>
+</html>
