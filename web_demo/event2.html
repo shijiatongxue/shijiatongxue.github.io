@@ -5,10 +5,9 @@
         <title>DOM2 事件处理程序</title>
     </head>
     <body>
-        <button>按钮</button>
+        <button id="myBtn">按钮</button>
         <script>
-            // TODO: 没有效果
-            var btn = document.getElementsByTagName(div)[0];
+            var btn = document.getElementById("myBtn");
             btn.addEventListener("click", function(){
                 alert(this.id);
             });
