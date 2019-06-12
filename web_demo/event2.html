@@ -8,12 +8,11 @@
         <button id="myBtn">按钮</button>
         <script>
             var btn = document.getElementById("myBtn");
-            btn.addEventListener("click", function(){
+            var handler = function(){
                 alert(this.id);
-            });
-            btn.addEventListener("click", function(){
-                alert("world!");
-            });
+            }
+            btn.addEventListener("click", handler, false);
+            btn.removeEventListener("click", handler, false); // 必须传入和绑定事件完全相同的参数
         </script>
     </body>
 </html>
