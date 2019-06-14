@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <meta charset="utf-8">
+        <title>利用浮动完成三栏布局</title>
+        <style>
+            .wrap{
+                background-color: #333;
+                height: 100px;
+                min-width: 600px;
+            }
+            .left{
+                background-color: red;
+                width: 300px;
+                height: 100px;
+                float: left;
+            }
+            .right{
+                background-color: blue;
+                width: 300px;
+                height: 100px;
+                float: right;
+            }
+            .main{
+                background-color: green;
+                height: 100px;
+                margin-left: 300px;
+                margin-right: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="main"></div>
+        </div>
+    </body>
+</html>

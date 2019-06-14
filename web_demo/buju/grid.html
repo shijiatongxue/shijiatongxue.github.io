@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <meta charset="utf-8">
+        <title>利用网格完成三栏布局</title>
+        <style>
+            .wrap{
+                display: grid;
+                grid-template-rows: 100px;
+                grid-template-columns: 300px auto 300px;
+            }
+            .left{
+                background-color: red;
+            }
+            .right{
+                background-color: blue;
+            }
+            .main{
+                background-color: green;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="left"></div>
+            <div class="main"></div>
+            <div class="right"></div>
+        </div>
+    </body>
+</html>
