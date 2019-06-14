@@ -26,7 +26,11 @@
 
             // 获得外部样式表
             // box.style.fontSize = "12px";
-            alert(box.style.fontSize);
+            // alert(box.style.fontSize);
+
+            // element.getBoundingClientRect()可以获得元素的width，height，top和left
+            var wid = box.getBoundingClientRect().left;
+            alert(wid);
         </script>
     </body> 
 </html>

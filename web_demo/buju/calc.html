@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <meta charset="utf-8">
+        <title>利用calc属性完成三栏布局</title>
+        <style>
+            .wrap{
+                width: 100%;
+                height: 100px;
+                min-width: 600px;
+            }
+            .wrap::after{
+                clear: both;
+            }
+            .left, .main, .right{
+                height: 100px;
+            }
+            .left{
+                float: left;
+                width: 300px;
+                background-color: red;
+            }
+            .right{
+                width: 300px;
+                float: right;
+                background-color: blue;
+            }
+            .main{
+                float: left;
+                width: calc(100% - 600px);
+                background-color: green;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="left"></div>
+            <div class="main"></div>
+            <div class="right"></div>
+        </div>
+    </body>
+</html>

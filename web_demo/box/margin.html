@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <meta charset="utf-8">
+        <title>margin的重叠与坍塌</title>
+        <style>
+            .box1{
+                background-color: #333;
+                overflow: hidden; /* 设置块格式化上下文，让子元素不对其产生影响*/
+            }
+            .div1{
+                height: 100px;
+                background-color: red;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            .div2{
+                height: 100px;
+                background-color: blue;
+                margin-top: 50px;
+            }
+            .box2{
+                overflow: hidden;
+                background-color: #333;
+            }
+            .div3{
+                margin: 50px 0;
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 兄弟之间的margin坍塌 -->
+        <div class="box1">
+            <div class="div1"></div>
+            <div class="div2"></div>
+        </div>
+        <br>
+        <div class="box2">
+            <div class="div3"></div>
+        </div>
+    </body>
+</html>
