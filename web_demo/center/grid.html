@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <title>grid实现垂直居中</title>
+        <style>
+            .box{
+                height: 500px;
+                /* 块垂直居中 */
+                display: grid;
+                align-items: center;
+                background-color: blue;
+            }
+            .content{
+                height: 100px;
+                background-color: #333;
+                /* 内容水平居中 */
+                text-align: center;
+                /* 内容垂直居中 */
+                line-height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="content">
+                少小离家老大回，乡音未改鬓毛衰。
+            </div>
+        </div>
+    </body>
+</html>
