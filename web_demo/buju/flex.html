@@ -2,14 +2,16 @@
 <html lang="ch">
     <head>
         <meta charset="utf-8">
-        <title>利用浮动完成三栏布局</title>
+        <title>利用flex完成三栏布局</title>
         <style>
             .wrap{
                 display: flex;
-                justify-content: space-between;
+                /* 设置内容之间的间隔，space-between是平均分配间距 */
+                /* justify-content: space-between; */
+                height: 100px;
             }
             .left, .main, .right{
-                height: 100px;
+                height: 100%;
             }
             .left{
                 width: 300px;
@@ -21,7 +23,8 @@
             }
             .main{
                 width: 100%;
-                margin: 0 20px;
+                /* 或者设置flex*/
+                /* flex: 1; */
                 background-color: green;
                 
             }
