@@ -3,14 +3,13 @@
     size: A4 portrait;
     margin: 0mm;
 }
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 /* 基本样式 */
 html, body{
     margin: 0;
     padding: 0;
     background-color: #ebebeb;
-    font-family: Raleway, sans-serif;
+    font-family: 'PingFang SC', 'Lantinghei SC', 'Microsoft YaHei', '微软雅黑', arial, '宋体', sans-serif;
     -webkit-print-color-adjust: exact;
 }
 h1{
