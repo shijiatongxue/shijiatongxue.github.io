@@ -21,11 +21,12 @@ h1{
 }
 h2{
     font-size: 24px;
+    color: #A0A4A7;
 }
 h2::after{
     content: "";
     display: block;
-    background: linear-gradient(to right, #0c101b, #0c101b);
+    background: linear-gradient(to right, #A0A4A7, #A0A4A7);
     width: 100%;
     height: 1px;
 }
@@ -33,7 +34,19 @@ h3{
     font-size: 20px;
 }
 ul li, p{
-    font-size: 14px;
+    font-size: 16px;
+}
+ul{
+    padding-left: 0;
+}
+li{
+    list-style-position: outside;
+    list-style: none;
+    background-image: url('../images/li_bg_10_gray.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 20px;
+    margin-bottom: 10px;
 }
 div{
     margin: 0;
@@ -59,7 +72,9 @@ article{
     display: grid;
     grid-template-rows: 40px;
     grid-template-columns: repeat(3, 33.333%);
+    align-items: center;
     justify-items: center;
+    justify-content: space-evenly;
 }
 .footer{
     height: 20px;
