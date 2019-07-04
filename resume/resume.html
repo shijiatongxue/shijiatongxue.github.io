@@ -6,79 +6,12 @@
         <link rel="icon" href="../images/sj.png" type="image/png">
         <link rel="shortcut icon" href="../images/sj.png" type="image/png">
         <title>石嘉的简历</title>
+        <link rel="stylesheet" href="../styles/resume.css">
         <link rel="stylesheet" href="../styles/resume.css" media="print">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- javascript文件 -->
         <script src="../js/jquery.js"></script>
         <script src="https://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
         <script src="../js/jquery.jqprint-0.3.js"></script>
-        <style>
-            html, body{
-                margin: 0;
-                padding: 0;
-                background-color: #ebebeb;
-                font-family: 'PingFang SC', 'Lantinghei SC', 'Microsoft YaHei', '微软雅黑', arial, '宋体', sans-serif;
-                -webkit-print-color-adjust: exact;
-            }
-            h1{
-                line-height: 60px;
-                font-size: 32px;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-            }
-            h2{
-                font-size: 24px;
-            }
-            h2::after{
-                content: "";
-                display: block;
-                background: linear-gradient(to right, #0c101b, #0c101b);
-                width: 100%;
-                height: 1px;
-            }
-            h3{
-                font-size: 20px;
-            }
-            ul li, p{
-                font-size: 14px;
-            }
-            div{
-                margin: 0;
-                padding: 0;
-            }
-            article{
-                width: 595px;
-                height: 841px;
-                margin: 0 auto;
-                background-color: #fff;
-                position: relative;
-            }
-            .main{
-                padding:0 20px;
-            }
-            .header{
-                height: 100px;
-                background-color: #0c101b;
-                color: #fff;
-            }
-            .detail{
-                display: grid;
-                grid-template-rows: 40px;
-                grid-template-columns: repeat(3, 33.333%);
-                justify-items: center;
-            }
-            .footer{
-                height: 20px;
-                background-color: #0c101b;
-                position: absolute;
-                top: 821px;
-                width: 100%;
-            }
-            .printme{
-                text-align: center;
-                margin-top: 10px;
-            }
-        </style>
         <script>
             $(function(){
                 $("#btn").click(function(){

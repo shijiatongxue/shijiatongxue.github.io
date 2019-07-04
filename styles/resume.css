@@ -52,6 +52,7 @@ article{
 .header{
     height: 100px;
     background-color: #0c101b;
+    background-image: url('../images/resume_bg.png');
     color: #fff;
 }
 .detail{
@@ -63,6 +64,7 @@ article{
 .footer{
     height: 20px;
     background-color: #0c101b;
+    background-image: url('../images/resume_bg.png');
     position: absolute;
     top: 821px;
     width: 100%;
