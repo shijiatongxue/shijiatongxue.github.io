@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" charset="utf-8">
+        <title>石嘉的简历</title>
+        <link rel="icon" href="../images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="../images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway&display=swap" >
+        <link rel="stylesheet" href="../styles/resume.css" media="print">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="../js/jquery.js"></script>
+        <script src="http://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+        <script src="../js/jquery.jqprint-0.3.js"></script>
+        <style>
+            html, body{
+                margin: 0;
+                padding: 0;
+                background-color: #ebebeb;
+                font-family: Raleway, sans-serif;
+                -webkit-print-color-adjust: exact;
+            }
+            h1{
+                line-height: 60px;
+                font-size: 32px;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            h2{
+                font-size: 24px;
+            }
+            h2::after{
+                content: "";
+                display: block;
+                background: linear-gradient(to right, #0c101b, #0c101b);
+                width: 100%;
+                height: 1px;
+            }
+            h3{
+                font-size: 20px;
+            }
+            ul li, p{
+                font-size: 14px;
+            }
+            div{
+                margin: 0;
+                padding: 0;
+            }
+            article{
+                width: 595px;
+                height: 841px;
+                margin: 0 auto;
+                background-color: #fff;
+                position: relative;
+            }
+            .main{
+                padding:0 20px;
+            }
+            .header{
+                height: 100px;
+                background-color: #0c101b;
+                color: #fff;
+            }
+            .detail{
+                display: grid;
+                grid-template-rows: 40px;
+                grid-template-columns: repeat(3, 33.333%);
+                justify-items: center;
+            }
+            .footer{
+                height: 20px;
+                background-color: #0c101b;
+                position: absolute;
+                top: 821px;
+                width: 100%;
+            }
+            .printme{
+                text-align: center;
+                margin-top: 10px;
+            }
+        </style>
+        <script>
+            $(function(){
+                $("#btn").click(function(){
+                    $('#resume').jqprint({})
+                });
+            });
+        </script>
+    <body>
+        <article id="resume">
+            <div class="header">
+                <h1>石&nbsp;&nbsp;嘉</h1>
+                <div class="detail">
+                    <p>前端工程师</p>
+                    <p>13296621710</p>
+                    <p>shijiatongxue@qq.com</p>
+                </div>
+            </div>
+            <div class="main">
+                <h2>教育经历</h2>
+                <ul>
+                    <li>2018.7-2020.6 硕士 华中科技大学 计算机技术</li>
+                    <li>2014.9-2018.6 本科 兰州大学 教育技术学</li>
+                </ul>
+                <h2>项目经历</h2>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <h2>技术栈</h2>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="footer"></div>
+        </article>
+        <!-- 打印简历 -->
+        <div class="printme">
+            <button class="btn btn-default btn-lg" id="btn">打印</button>
+        </div>
+    </body>
+</html>

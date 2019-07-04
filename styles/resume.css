@@ -1,0 +1,74 @@
+/* 打印设置 */
+@page{
+    size: A4 portrait;
+    margin: 0mm;
+}
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+/* 基本样式 */
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: #ebebeb;
+    font-family: Raleway, sans-serif;
+    -webkit-print-color-adjust: exact;
+}
+h1{
+    line-height: 60px;
+    font-size: 32px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+h2{
+    font-size: 24px;
+}
+h2::after{
+    content: "";
+    display: block;
+    background: linear-gradient(to right, #0c101b, #0c101b);
+    width: 100%;
+    height: 1px;
+}
+h3{
+    font-size: 20px;
+}
+ul li, p{
+    font-size: 14px;
+}
+div{
+    margin: 0;
+    padding: 0;
+}
+article{
+    width: 595px;
+    height: 841px;
+    margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+}
+.main{
+    padding:0 20px;
+}
+.header{
+    height: 100px;
+    background-color: #0c101b;
+    color: #fff;
+}
+.detail{
+    display: grid;
+    grid-template-rows: 40px;
+    grid-template-columns: repeat(3, 33.333%);
+    justify-items: center;
+}
+.footer{
+    height: 20px;
+    background-color: #0c101b;
+    position: absolute;
+    top: 821px;
+    width: 100%;
+}
+.printme{
+    text-align: center;
+    margin-top: 10px;
+}
