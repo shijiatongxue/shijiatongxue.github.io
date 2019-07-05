@@ -8,13 +8,18 @@
         <div class="title"></div>
         <script>
             var xhr = new XMLHttpRequest();
-            xhr.open('get', '/ajax/title.txt', false);
-            if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
-                document.querySelector('.title').innerHTML(xhr.responseText);
-            }
-            else{
-                document.querySelector('.title').innerHTML('<h1>' + 'Request was unsuccessful: ' + xhr.status + '</h1>');
-            }
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                        document.querySelector('.title').innerHTML(xhr.responseText);
+                    }
+                    else{
+                        document.querySelector('.title').innerHTML('<h1>' + 'Request was unsuccessful: ' + xhr.status + '</h1>');
+                    }
+                }
+            };
+            xhr.open('get', '/ajax/title.txt', true);
+            xhr.send(null);
         </script>
     </body>
 </html>
