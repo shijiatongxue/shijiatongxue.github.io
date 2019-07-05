@@ -5,16 +5,16 @@
         <title>ajax</title>
     </head>
     <body>
-        <div class="title"></div>
+        <div id="title"></div>
         <script>
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function(){
                 if(xhr.readyState === 4){
                     if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
-                        document.querySelector('.title').innerHTML(xhr.responseText);
+                        document.getElementById('title').innerHTML = xhr.responseText;
                     }
                     else{
-                        document.querySelector('.title').innerHTML('<h1>' + 'Request was unsuccessful: ' + xhr.status + '</h1>');
+                        document.getElementById('title').innerHTML = '<h1>' + 'Request was unsuccessful: ' + xhr.status + '</h1>';
                     }
                 }
             };
