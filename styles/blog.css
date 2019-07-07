@@ -1,0 +1,63 @@
+@import url('https://shijiatongxue.github.io/styles/normalize.css');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap'); 
+body{
+    background-color: #ebebeb;
+    font-family: 'Raleway', sans-serif;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+}
+a:hover{
+    color: #000;
+}
+header{
+    display: grid;
+    width: 60%;
+    margin: 0 auto;
+    grid-template-rows: 50px;
+    grid-template-columns: repeat(3, 33.33%);
+    justify-items: center;
+    align-items: center;
+    color: #B21D30;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid #B21D30;
+    text-align: left;
+}
+header span{
+    justify-self: stretch;
+    line-height: 50px;
+}
+.main{
+    display: grid;
+    width: 60%;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 33.33%);
+    justify-items: center;
+}
+.main ul{
+    padding: 0;
+    width: 100%;
+}
+.main li{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    list-style-position: outside;
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.main li span{
+    margin-right: 5px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #0055A8;
+}
+/* TODO: flex布局 */
+/* .main{
+    display: flex;
+    flex-wrap: wrap;
+} */
