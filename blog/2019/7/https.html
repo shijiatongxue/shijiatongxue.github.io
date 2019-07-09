@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>聊聊HTTPS</title>
+    </head>
+    <body>
+        <!-- 输入文章类别： -->
+        <article>
+            <h1>聊聊HTTPS</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月7日</p>
+            <p class="info">参考：<a href="https://zhuanlan.zhihu.com/p/38278311">又拍云</a></p>
+            <h2>SSL层</h2>
+            <p>简而言之，HTTPS就是在HTTP下加入了SSL层，它有以下3个用途：</p>
+            <ol>
+                <li>通过证书信息确认网站的真实性；</li>
+                <li>建立加密的信息通道；</li>
+                <li>数据内容的完整性。</li>
+            </ol>
+            <h2>问题</h2>
+            <p>网站的证书如何防止篡改？</p>
+            <p>加密是使用的RSA算法吗？</p>
+            <p>完整性是否通过哈希值验证？</p>
+            <h2>如何实现</h2>
+            <p>SSL协议的基本思路是采用公钥加密算法，也就是说，客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密。</p>
+
+            
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
