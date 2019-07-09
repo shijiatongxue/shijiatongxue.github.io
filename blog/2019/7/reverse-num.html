@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>算法题：输入数组，输出其逆序字符串</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>算法题：输入数组，输出其逆序字符串</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月9日</p>
+            <!-- <p class="info">参考：<a href=""></a></p> -->
+            <h2>递归实现</h2>
+            <pre>
+                <code class="language-javascript">
+                    function fc(num){
+                        if((''+num).length === 1){
+                            return ''+num;
+                        }
+                        return (''+num).slice(-1) + fc(parseInt((''+num).slice(0,-1), 10));
+                    }
+                    fc(1234); // "4321"
+                </code>
+            </pre>
+            <h2>优化</h2>
+            <pre>
+                <code class="language-javascript">
+                    function fc(num){
+                        if((''+num).length === 1){
+                            return ''+num;
+                        }
+                        return (''+num).slice(-1) + arguments.callee(parseInt((''+num).slice(0,-1), 10));
+                    }
+                </code>
+            </pre>
+            <p>其中argument.callee是一个指向正在执行函数的指针，可以用它来实现对函数的递归调用。</p>
+            <h2>优化</h2>
+            <p>在严格模式下，不能通过脚本arguements.callee，访问这个属性会导致错误。不过，可以使用命名函数表达式来达成相同的效果。</p>
+            <pre>
+                <code class="language-javascript">
+                    var reverseNum = (function fc(num){
+                        if((''+num).length === 1){
+                            return ''+num;
+                        }
+                        return (''+num).slice(-1) + fc(parseInt((''+num).slice(0,-1), 10));
+                    });
+                    reverseNum(1234); // "4321"
+                </code>
+            </pre>
+            <p>完</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
