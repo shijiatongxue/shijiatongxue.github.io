@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>京东快手面试：两数之和</title>
+    </head>
+    <body>
+        <!-- 输入文章类别： -->
+        <article>
+            <h1>京东快手面试：两数之和</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月7日</p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/pull/136#issue-283979533">blockmood</a></p>
+            <h2>问题</h2>
+            <p>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。</p>
+            <p>你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。</p>
+            <pre>
+                <code class="language-text">
+                    给定 nums = [2, 7, 11, 15], target = 9
+
+                    因为 nums[0] + nums[1] = 2 + 7 = 9
+                    所以返回 [0, 1]
+                </code>
+            </pre>
+            <h2>思路</h2>
+            <p>暴力搜索，从第一个元素往后进行匹配，复杂度O(n^2)。</p>
+            <h2>优化</h2>
+            <pre>
+                <code class="language-javascript">
+                    function fc(arr, target){
+                        let map = {};
+                        for(let i = 0; i < arr.length; i++){
+                            map[arr[i]] = i;
+                        }
+                        for(let i=0; i < arr.length; i++){
+                            let d = target - arr[i];
+                            if(map[d]){
+                                return [i, map[d]];
+                            }
+                        }
+                        return "Not exists.";
+                    }    
+                </code>
+            </pre>
+            <p>这个方法采用的是哈希的方法，复杂度为O(n)。</p>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
