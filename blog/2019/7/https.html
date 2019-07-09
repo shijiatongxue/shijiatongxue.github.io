@@ -13,6 +13,7 @@
             <p class="info">作者：石嘉</p>
             <p class="info">日期：2019年7月7日</p>
             <p class="info">参考：<a href="https://zhuanlan.zhihu.com/p/38278311">又拍云</a></p>
+            <p class="info">参考：<a href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html">阮一峰</a></p>
             <h2>SSL层</h2>
             <p>简而言之，HTTPS就是在HTTP下加入了SSL层，它有以下3个用途：</p>
             <ol>
@@ -34,7 +35,19 @@
                 <p>解决办法：每一对session，客户端和服务器都生成一个“对话秘钥”，用它来加密信息。由于“对话秘钥”是对称加密，所以运算速度很快，而服务器公钥只用于加密“对话秘钥”本身，这样就减少了加密运算的消耗时间。</p>
             </ol>
             <h2>握手阶段的详细过程</h2>
-            
+            <p>“握手阶段”设计四次通信，所有通信都是明文的。</p>
+            <h3>客户端发出请求</h3>
+            <p>首先，客户端先向服务器发送加密通信的请求，这被叫做ClientHello请求。</p>
+            <p>在这一步，客户端主要向服务器提供以下信息：</p>
+            <ol>
+                <li>支持的协议版本，如TSL 1.0版。</li>
+                <li>一个客户端生成的随机数，稍后用于生成“对话秘钥”。</li>
+                <li>支持的加密方法，比如RSA公钥加密。</li>
+                <li>支持的压缩算法。</li>
+            </ol>
+            <h3>服务器响应</h3>
+            <h3>客户端回应</h3>
+            <h3>服务器最后回应</h3>
         </article>
         <script src="https://shijiatongxue.github.io/js/prism.js"></script>
     </body>
