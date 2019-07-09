@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>面试题：['10', '10', '10'].map(parseInt)</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>面试题：['10', '10', '10'].map(parseInt)</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月7日</p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/4#issue-401568408">YuYuBei</a></p>
+            <h2>运行结果</h2>
+            <pre>
+                <code class="language-javascript">
+                    ['10', '10', '10'].map(parseInt); // [10, NaN, 2]
+                </code>
+            </pre>
+            <h2>原因</h2>
+            <p>parseInt(string, radix) string为字符串，radix为介于2-36的整数。这个函数可以把基于radix进制的string转化为10进制的数字。</p>
+            <p>如：</p>
+            <pre>
+                <code class="language-javascript">
+                    parseInt("10", 2); // 2
+                    parseInt("11", 16); // 17
+                    parseInt("2", 2); // NaN，除了"0"，"1"外，其他数字都不是有效的二进制数字
+                </code>
+            </pre>
+            <h2>需要注意的地方</h2>
+            <p>如果基数为undefined或0或没有指定，JavaScript作如下处理：</p>
+            <ol>
+                <li>string为"0x"或"0X"开头，则基数为16;</li>
+                <li>string为"0"开头，则基数是8或10，具体是哪个基数由环境决定；</li>
+                <li>string以其他任何值开头，则基数为10。</li>
+            </ol>
+            <p>如果第一个字符不能被转换成数字，parseInt返回NaN。</p>
+            <h2>总结</h2>
+            <p>map的第一个参数为callback函数，它接收了三个参数，分别为value，index和array，其中后两个参数可以省略。</p>
+            <p>所以在这里，传入"10"和它们的index：</p>
+            <ul>
+                <li>parse("10", 0) // 在基数为0的情况下，根据第3条基数转化为10；</li>
+                <li>parse("10", 1) // 在基数为1的情况下，会返回NaN，因为基数不能小于2；</li>
+                <li>parse("10", 2) // 基数为2，返回2。</li>
+            </ul>
+            <p>完</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
