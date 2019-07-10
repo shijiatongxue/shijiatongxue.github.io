@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>Vue传递数据的方式</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>Vue传递数据的方式</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月10日</p>
+            <h2>插值表达式</h2>
+            <p>Vue可以通过插值表达式直接对data的属性进行传递。接收的元素必须是直接Vue直接绑定的元素，如果不是直接绑定的元素，需要用bind。</p>
+            <pre>
+                <code class="language-html">
+                    &lt;div id=&quot;app&quot;&gt;{{message}}&lt;/div&gt;    
+                    &lt;script&gt;
+                        var app = new Vue({
+                            el: &quot;#app&quot;,
+                            data: {
+                                message: 'Hello Vue!'
+                            }
+                        })
+                    &lt;/script&gt;
+                </code>
+            </pre>
+            <h2>v-bind绑定数据</h2>
+            <p>在这里，该指令的意思是：“将这个元素节点的title特性和Vue实例的message属性保持一致”。</p>
+            <pre>
+                <code class="language-html">
+                    &lt;div id=&quot;app&quot;&gt;
+                    &lt;span v-bind:title=&quot;message&quot;&gt;&lt;/span&gt;
+                    &lt;/div&gt;    
+                    &lt;script&gt;
+                    var app = new Vue({
+                        el: &quot;#app&quot;,
+                        data: {
+                            message: 'Hello Vue!'
+                        }
+                    })
+                    &lt;/script&gt;
+                </code>
+            </pre>
+            <h2>v-for遍历列表</h2>
+            <p>v-for可以传递数据给不直接绑定的元素，然后通过插值表达式显示数据内容。</p>
+            <pre>
+                <code class="language-html">
+                    &lt;div id=&quot;app&quot;&gt;
+                        &lt;ul&gt;
+                            &lt;li v-for=&quot;item in list&quot;&gt;{{item}}&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;script&gt;
+                        var app = new Vue({
+                            el: &quot;#app&quot;,
+                            data:{
+                                list: ['hello', 'world'],
+                            }
+                        })
+                    &lt;/script&gt;
+                </code>
+            </pre>
+            <h2>v-model双向绑定</h2>
+            <p>Vue还提供了v-model指令，它可以实现表达输入与应用状态的双向绑定。当输入框内容发生变化时，应用状态会自动发生改变；应用状态发生变化时，输入框内的内容也会改变。</p>
+            <pre>
+                <code class="language-html">
+                    &lt;div id=&quot;app&quot;&gt;
+                        &lt;p&gt;{{ message }}&lt;/p&gt;
+                        &lt;input v-model=&quot;message&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;script&gt;
+                        var app = new Vue({
+                            el: '#app',
+                            data: {
+                                message: 'Hello Vue!'
+                            }
+                        })
+                    &lt;/script&gt;
+                </code>
+            </pre>
+            <h2>父组件给子组件传递数据</h2>
+            <p>首先我们了解一下组件的概念，定义一个全局组件。</p>
+            <pre>
+                <code class="language-javascript">
+                    // 定义一个全局组件
+                    Vue.component('todo-item', {
+                        template: '<li></li>'
+                    })
+                </code>
+            </pre>
+            <p>定义完成后，可以像正常HTML标签一样使用组件元素。</p>
+            <pre>
+                <code class="language-html">
+                    &lt;!-- 使用全局组件 --&gt;
+                    &lt;ol&gt;
+                        &lt;!-- 创建一个组件的实例 --&gt;
+                        &lt;todo-item&gt;&lt;/todo-item&gt;
+                    &lt;/ol&gt;
+                </code>
+            </pre>
+            <p>通过props属性可以将父组件的参数传递给子组件，另外，传递参数需要v-bind配合。</p>
+            <pre>
+                <code class="language-html">
+                    &lt;div id=&quot;app&quot;&gt;
+                        &lt;ol&gt;
+                            &lt;todo-item v-for=&quot;item in list&quot; 
+                                       v-bind:todo=&quot;item&quot;&gt;
+                            &lt;/todo-item&gt;
+                        &lt;/ol&gt;
+                    &lt;/div&gt;
+
+                    &lt;script&gt;
+                        Vue.component('todo-item', {
+                            props: ['todo'],
+                            template: '&lt;li&gt;{{item}}&lt;/li&gt;'
+                        }) 
+
+                        var app = new Vue({
+                            el: &quot;#app&quot;,
+                            data:{
+                                list: ['hello', 'world'],
+                            }
+                        })
+                    &lt;/script&gt;
+                </code>
+            </pre>
+            <h2>子组件给父组件传递数据</h2>
+            <p>有时也需要将子组件的信息传递给父组件，如点击子组件元素，删除该元素。</p>
+            <p>子组件向父组件传递消息的方法是emit delete事件，被父组件捕捉，然后调用响应函数handleDeleteItem。</p>
+            <p>子组件的handleItemClick方法是为了捕捉用户的click。</p>
+            <pre>
+                <code class="language-html">
+                    &lt;div id=&quot;app&quot;&gt;
+                        &lt;ul&gt;
+                            &lt;todo-item v-for=&quot;item in list&quot;
+                                       v-bind:todo=&quot;item&quot;
+                                       v-click:delete=&quot;handleDeleteItem&quot;&gt;
+                            &lt;/todo-item&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;script&gt;
+                        Vue.component('todo-item', {
+                            props: ['todo'],
+                            // 在组件内部绑定click时间，调用子组件响应
+                            template: &quot;&lt;li v-click='handleItemClick'&gt;{{item}}&lt;/li&gt;&quot;,
+                            methods: {
+                                handleItemClick: function(){
+                                    // 子组件emit的事件被父组件捕捉到，然后进行相应，打印hello
+                                    this.$emit(&quot;detele&quot;)
+                                }
+                            },
+                        })
+
+                        var app = new Vue({
+                            el: &quot;#app&quot;,
+                            data:{
+                                list: ['hello', 'world'],
+                            },
+                            methods:{
+                                handleDeleteItem: function(){
+                                    alert('hello');
+                                }
+                            }
+                        })
+                    &lt;/script&gt;
+                </code>
+            </pre>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
