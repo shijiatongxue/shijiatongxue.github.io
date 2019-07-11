@@ -76,13 +76,23 @@ article{
     justify-items: center;
     justify-content: space-evenly;
 }
+/* 底部网格布局 */
 .footer{
+    color: #FFF;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(2, 50%);
+    align-items: center;
+    justify-items: center;
     height: 20px;
     background-color: #0c101b;
     background-image: url('../images/resume_bg.png');
     position: absolute;
     top: 821px;
     width: 100%;
+}
+.footer p{
+    font-size: 12px;
 }
 .printme{
     text-align: center;
