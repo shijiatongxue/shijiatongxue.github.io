@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>TCP三次握手四次挥手</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：优秀的程序员 -->
+        <article>
+            <h1>TCP三次握手四次挥手</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年6月21日</p>
+            <p class="info">参考：网络是怎样连接的</p>
+            <p class="info">参考：<a href="https://github.com/shijiatongxue/NoteBook/blob/master/20-%E7%BD%91%E7%BB%9C.md">传送门</a> </p>
+            <h2>套接字连接的三次握手</h2>
+            <p>第一次握手：</p>
+            <ul>
+                <li>客户端先创建一个表示开始数据收发操作的控制信息头部； 重点是发送方和接收方的端口号。</li>
+                <li>然后，将头部中的控制位的SYN比特设置为1，表示连接；</li>
+                <li>接下来，TCP模块会将信息传递给IP模块并委托它进行发送；</li>
+            </ul>
+            <p>第二次握手：</p>
+            <ul>
+                <li>服务器的TCP模块根据TCP头部中的信息找到端口号对应的套接字；</li>
+                <li>套接字中会写入响应的信息，并将状态改为正在连接；</li>
+                <li>服务器TCP模块会返回响应，这个过程与客户端一样，需要在TCP头部中设置发送方和接收方端口号以及SYN比特。此外，在返回响应时还需要将ACK控制位设为1，这表示已经接收到响应的网络包；</li>
+                <li>接下来，服务器TCP模块会将TCP头部传递给IP模块，并委托IP模块向客户端返回响应；</li>
+            </ul>
+            <p>第三次握手：</p>
+            <ul>
+                <li>网络包返回客户端，通过IP模块到达TCP模块，并通过TCP头部的信息确认连接服务器的操作是否成功。如果SYN为1则表示连接成功，这时会向套接字中写入服务器IP地址、端口号等信息，同时还会将状态改为连接完毕；</li>
+                <li>客户端将ACK比特设置为1并发回服务器，告诉服务器刚才的响应包已经收到；</li>
+                <li>服务器收到这个包之后，连接操作才算全部完成。</li>
+            </ul>
+            <h2>断开套接字连接的四次挥手</h2>
+            <p>协议栈允许任何一方发起断开过程，这里以服务器端发起断开为例：</p>
+            <p>第一次挥手：</p>
+            <ul>
+                <li>首先，服务器一方的应用程序会调用Socket库中的close程序；</li>
+                <li>然后，服务器的协议栈会生成包含断开信息的TCP头部，具体来说就是讲控制位中的FIN比特设为1；</li>
+                <li>接下来，协议栈会委托IP模块向客户端发送数据。同时，服务器的套接字中也会记录下断开操作的相关信息。</li>
+            </ul>
+            <p>第二次挥手：</p>
+            <ul>
+                <li>当收到服务器发来的FIN为1的TCP头部时，客户端的协议栈会将自己的套接字标记为进入断开操作状态；</li>
+                <li> 然后，为了告知服务器已收到FIN为1的包，客户端给服务器返回一个ACK号；</li>
+                <li>这些操作完成后，协议栈就可以了等待应用程序来取数据了；</li>
+            </ul>
+            <p>第三次挥手：</p>         
+            <ul>
+                <li>客户端应用程序调用close来结束收发操作，生成一个FIN比特为1的TCP包，然后委托IP模块发送给服务器；</li>
+            </ul>
+            <p>第四次挥手：</p>
+            <ul>
+                <li>服务器返回ACK号，通信全部结束。</li>
+            </ul>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
