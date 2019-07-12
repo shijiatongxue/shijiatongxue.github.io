@@ -48,6 +48,9 @@ li{
     padding-left: 20px;
     margin-bottom: 10px;
 }
+li.no_style{
+    background-image: none;
+}
 div{
     margin: 0;
     padding: 0;
@@ -71,10 +74,26 @@ article{
 .detail{
     display: grid;
     grid-template-rows: 40px;
-    grid-template-columns: repeat(3, 33.333%);
+    grid-template-columns: 13.5% 23.5% 30.5% 17.5%;
     align-items: center;
     justify-items: center;
-    justify-content: space-evenly;
+    justify-content: space-evenly; /* 控制项目之间以及项目与边框之间的间距：等距 */
+}
+p.github{
+    display: grid;
+    grid-template-rows: 40px;
+    grid-template-columns: 20px auto;
+    align-items: center; /* 在格子中的垂直位置 */
+    justify-items: center; /* 在格子中的水平位置 */
+    grid-column-gap: 5px;
+}
+p.github span.logo{
+    background-image: url('../images/GitHub-Mark-Light-32px.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 0 10px;
+    width: 20px;
+    height: 40px;
 }
 /* 底部网格布局 */
 .footer{
