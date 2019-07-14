@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>CDN：内容分发网络</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：优秀的程序员 -->
+        <article>
+            <h1>CDN：内容分发网络</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月14日</p>
+            <p class="info">参考：维基百科</p>
+            <p class="info">参考：网络是怎样连接的</p>
+            <h2>什么是CDN</h2>
+            <p>内容分发网络也叫CDN或CNS，是一种靠近用户端的缓存服务器，它部署在运营商的机房。</p>
+            <p>它提供文件的缓存服务，由内容分发服务运营商（CDSP）进行管理，CDSP会与主要的供应商签约，并部署很多台缓存服务器。</p>
+            <p>缓存服务器可以缓存多个网站的数据，因此CDSP的缓存服务器可以提供给多个Web服务器的运营商共享。</p>
+            <h2>涉及到的不同实体</h2>
+            CDN涉及到不同实体，购买服务的是各大网站，提供服务的是CDSP，而基础设施是运营商的。
+            <ul>
+                <li>运营商：如中国移动；</li>
+                <li>CDSP：如蓝汛；</li>
+                <li>网站运营者：各大网站。</li>
+            </ul>
+            <h2>如何找到最近的缓存服务器</h2>
+            <p>网络中存在很多缓存服务器，如何从这些服务器中找到离客户端最近的一个，并让客户端去访问那台服务器呢？</p>
+            <ul>
+                <li>用DNS服务器来分配访问</li>
+                <li>使用HTTP报文中的Location进行重定向</li>
+            </ul>
+            <h3>DNS服务器分配访问</h3>
+            <p>按照DNS服务器的工作方式，它不会考虑客户端与缓存服务器的远近，因此可能会返回离客户端较远的缓存服务器IP地址。</p>
+            <p>采用这种方式可以通过估算DNS服务器与缓存服务器对应路由器的IP，根据路由表判断距离的远近。</p>
+            <h3>Location重定向</h3>
+            <p>当使用重定向告知客户端最近的缓存服务器时，首先需要将重定向服务器注册到Web服务器端的DNS服务器上。这样一来，客户端会将HTTP请求消息发送到重定向服务器上。</p>
+            <p>同样也是收集了各个路由器的路由信息，并根据这些信息找到最近的缓存服务器，然后将缓存服务器的地址放到Location字段中返回响应。</p>
+            <p>这种方法的缺点在于增加了HTTP消息的交互次数，相应的开销也比较大，但它也有优点。</p>
+            <h3>两者比较</h3>
+            <p>对DNS服务器进行拓展的方法是估算客户端DNS服务器到缓存服务器之间的距离，因此精度较差；相对而言，重定向的方法是根据客户端发来的HTTP消息的发送方IP来估算距离的，因此精度较高。</p>
+            <h2>缓存的更新方法</h2>
+            <p>我们每次访问文件，都需要问Web服务器文件有没有更新，如果遇到网络拥塞，就会使响应时间恶化。</p>
+            <p>改善办法，有一种方式是让Web服务器在原始数据发生更新时，立即通知缓存服务器，使得缓存服务器上的数据一直保存最新状态，这样就不需要每次确认原始数据是否有变化了。</p>
+            <h2>重定向访问最近缓存服务器的机制</h2>
+            <ol>
+                <li>客户端，通过本地DNS服务器查询Web服务器的IP地址；</li>
+                <li>Web服务器端的DNS服务器，返回重定向服务器的IP地址；</li>
+                <li>客户端，给重定向服务器发送HTTP请求消息；</li>
+                <li>重定向服务器，返回HTTP响应消息，里面有Location信息；</li>
+                <li>客户端，给缓存服务器发送请求消息；</li>
+                <li>CDN，返回响应消息。</li>
+            </ol>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
