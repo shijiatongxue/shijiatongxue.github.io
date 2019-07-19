@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>壹题108：写出如下代码打印结果</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>壹题108：写出如下代码打印结果</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月19日</p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question">壹题</a></p>
+            <p>京东面试题</p>
+            <pre>
+                <code class="language-javascript">
+                    var name = 'Tom';
+                    (function() {
+                        if (typeof name == 'undefined') {
+                            var name = 'Jack';
+                            console.log('Goodbye ' + name);
+                        } else {
+                            console.log('Hello ' + name);
+                        }
+                    })();
+                </code>
+            </pre>
+            <p>打印结果如下：</p>
+            <pre>
+                <code class="language-javascript">
+                    Goodbye Jack    
+                </code>
+            </pre>
+            <p>在函数内部，只要var命名了变量，无论在哪个部分，都会发生变量提升效果，提升的位置为函数的首行。</p>
+            <pre>
+                <code class="language-javascript">
+                    var name = 'Tom';
+                    (function() {
+                        if (typeof name == 'undefined') {
+                            let name = 'Jack';
+                            console.log('Goodbye ' + name);
+                        } else {
+                            console.log('Hello ' + name);
+                        }
+                    })();
+                </code>
+            </pre>
+            <p>打印结果：</p>
+            <pre>
+                <code class="language-javascript">
+                  Hello Tom  
+                </code>
+            </pre>
+            <p>let只在块级作用域有效，也不存在变量提升，因此这里的typeof name在函数作用域没有找到name变量后，会去全局作用域查找。查到的是外层var定义的name，因此打印结果为Hello Tom。</p>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
