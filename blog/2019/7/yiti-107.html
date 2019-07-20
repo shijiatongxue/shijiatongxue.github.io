@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>壹题107：从大数组中随机选择部分元素</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>壹题107：从大数组中随机选择部分元素</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月20日</p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question">壹题</a></p>
+            <h2>题目</h2>
+            <p>考虑到性能问题，如何快速从一个数组中随机获取部分元素。</p>
+            <p>比如有个数组有100K个元素，从中不重复地随机选取10K个元素。</p>
+            <h2>思路</h2>
+            <p>可以假设数组的存储方式为顺序存储，可以通过下标访问。那么只需要在每10个里面随机挑选出一个就可以满足要求。然后依次加10得到后面的数据。</p>
+            <p>不过感觉这种方式不是很好，得到的结果是有规律的，不是真正的随机。</p>
+            <p>（未完待续）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
