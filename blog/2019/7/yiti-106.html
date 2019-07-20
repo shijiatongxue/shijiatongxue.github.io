@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>壹题106：分别写出如下代码的返回值</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>壹题106：分别写出如下代码的返回值</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月20日</p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question">壹题</a></p>
+            <p class="info">参考：JavaScript高级程序设计</p>
+            <h2>题目</h2>
+            <pre>
+                <code class="lang-js">
+                    String('11') == new String('11');
+                    String('11') === new String('11');
+                    
+                    // 输出
+                    true
+                    false
+                </code>
+            </pre>
+            <h2>分析</h2>
+            <p>new String得到的是对象，而调用转型函数String得到的是基本数据类型string。</p>
+            <pre><code class="lang-js">
+                var value = '25';
+                var number = Number(value);
+                
+                console.log(typeof number);
+                // number
+            </code></pre>
+            <h2>相等运算符（==）和全等运算符（===）</h2>
+            <p>两者的区别在于，相等运算符先转换后比较，而全等运算符仅比较而不转换。</p>
+            <p>当相等运算符左右的数据类型不同时，会发生强制转型。转换规则如下：</p>
+            <ul>
+                <li>如果有一个操作数是布尔值，则在比较相等性之前先将其转换为数值，false => 0，true => 1；</li>
+                <li>如果一个操作数是字符串，另一个操作数是数值，则把字符串转为数值；</li>
+                <li>如果一个操作数是对象，另一个不是，则调用对象的valueOf()方法，用得到的基本类型值按照前面的规则进行比较；</li>
+            </ul>
+            <p>两个操作符在进行比较时要遵循以下规则：</p>
+            <ul>
+                <li>null与undefined是相等的。</li>
+                <li>要比较相等性之前，不能将null和undefined转换成其他任何值。</li>
+                <li>如果有一个操作数为NaN，则相等操作符返回false。另外，NaN与NaN相等性为false。</li>
+                <li>如果两个操作数都是对象，则比较它们是不是指向同一个对象，如果是则返回true。</li>
+            </ul>
+            <h2>转换为字符串</h2>
+            <p>有3种方法可以将其他类型转换为字符串：</p>
+            <h3>'' +</h3>
+            <pre><code class="lang-js">
+                var a = 123;
+                var b = '' + a;
+
+                typeof b;
+                // string
+            </code></pre>
+            <h3>toString()</h3>
+            <pre><code class="lang-js">
+                (1).toString(); // "1"
+                true.toString(); // "true"
+
+                null.toString(); // 报错，TypeError
+            </code></pre>
+            <p>注意：数值、布尔值、对象和字符串都有toString()方法，但是null和undefined没有，它们调用方法会发生TypeError错误。</p>
+            <h3>String()</h3>
+            <p>String函数遵循下列转换规则：</p>
+            <ul>
+                <li>如果值有toString()方法，则调用该方法并返回相应结果；</li>
+                <li>如果值为null，则返回"null"，如果值为undefined，则返回"undefined"。</li>
+            </ul>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
