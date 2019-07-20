@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>壹题105：匹配URL</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>壹题105：匹配URL</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月20日</p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question">壹题</a></p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/177#issuecomment-511217631">LiuL0703</a></p>
+            <p class="info">参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions#special-lookahead">MDN正则表达式</a></p>
+            <h2>题目</h2>
+            <p>匹配elective后的数字</p>
+            <pre>
+                <code class="language-http">
+                    https://www.xx.cn/api?keyword=&level1=&local_batch_id=&elective=&local_province_id=33
+                    https://www.xx.cn/api?keyword=&level1=&local_batch_id=&elective=800&local_province_id=33
+                    https://www.xx.cn/api?keyword=&level1=&local_batch_id=&elective=800,700&local_province_id=33
+                </code>
+            </pre>
+            <h2>解答</h2>
+            <pre>
+                <code class="language-javascript">
+                    var arr = ["https://www.xx.cn/api?keyword=&level1=&local_batch_id=&elective=&local_province_id=33",
+                               "https://www.xx.cn/api?keyword=&level1=&local_batch_id=&elective=800&local_province_id=33",
+                               "https://www.xx.cn/api?keyword=&level1=&local_batch_id=&elective=800,700&local_province_id=33"]
+
+                    var fc = function(url){
+                        var reg = /(?<=elective=)(\d+(,\d+)*)/;
+                        var res = url.match(reg);
+                        return res ? res[0].split(',') : [];
+                    }
+
+                    arr.map(fc);
+                    // [[], ["800"], ["800", "700"]]
+                </code>
+            </pre>
+            <h2>(?<=)是什么意思</h2>
+            <p>(?<=y)x，匹配'x'仅仅当'x'前面是'y'.这种叫做后行断言。</p>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
