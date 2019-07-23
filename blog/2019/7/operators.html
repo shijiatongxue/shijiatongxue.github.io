@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>运算符</title>
+    </head>
+    <body>
+        <!-- 输入文章类别： -->
+        <article>
+            <h1>运算符</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月23日</p>
+            <p class="info">参考：<a href="https://zh.javascript.info/operators">JavaScript.Info</a></p>
+            <h2>字符串连接功能，二元运算符+</h2>
+            <p>如果+应用于字符串，它将合并各个字符串。</p>
+            <p>注意：只要任一运算元为字符串，那么其它运算元也将转换为字符串。</p>
+            <pre>
+                <code class="language-javascript">
+                    alert('1' + 2); // "12"
+                    alert(2 + '1'); // "12"    
+                </code>
+            </pre>
+            <p>但是运算符的方向为从左至右，如果两个个数字后面再跟一个字符串，那么两个数字会先加，再转化为字符串。</p>
+            <pre>
+                <code class="language-javascript">
+                    alert(2 + 2 + '1'); // "41" 而不是"221"
+                </code>
+            </pre>
+            <p>字符串连接和转化是+的一个特性。其它的运算符都只对数字有效。通常它们会转化运算元为数字。</p>
+            <p>举个例子：减号和除号</p>
+            <pre>
+                <code class="language-javascript">
+                    alert(2 - '1'); // 1
+                    alert('6' / '2'); // 3
+                </code>
+            </pre>
+            <h2>数字转化功能，一元运算符+</h2>
+            <p>一元运算符加号，应用于单个值，对数字没有作用。但是运算元是非数字，会将其转化为数字。</p>
+            <pre>
+                <code class="language-javascript">
+                    alert(+true); // 1
+                    alert(+""); // 0
+                </code>
+            </pre>
+            <p>它的效果与Number(value)相同，但是更加简短。</p>
+            <p>当一元+与二元+相遇时，会先计算一元+，这是因为一元+的优先级高一点。</p>
+            <h2>赋值运算符</h2>
+            <p>赋值运算符的运算顺序从右至左，链式赋值时先执行右边，后执行左边。</p>
+            <pre>
+                <code class="language-javascript">
+                    let a, b, c;
+                    a = b = c = 2 + 2;
+                    alert(a); // 4
+                    alert(b); // 4
+                    alert(c); // 4
+                </code>
+            </pre>
+            <p>每个运算符都有返回值。赋值运算符返回左运算元。你可能会在第三方库中看到下面这样的代码：</p>
+            <pre>
+                <code class="language-javascript">
+                    let a = 1;
+                    let b = 2;
+                    let c = 3 - (a = b + 1);
+
+                    alert(a); // 2
+                    alert(c); // 0
+                </code>
+            </pre>
+            <h2>自增++自减--运算符</h2>
+            <p>运算符++和--可以放在变量前或变量后。</p>
+            <ul>
+                <li>前置形式：++counter</li>
+                <li>后置形式：counter++</li>
+            </ul>
+            <p>作为运算符，它们也有返回值。前置形式返回一个新的值，但后置形式返回原来的值（做加法/减法之前的值）。</p>
+            <p>自增运算符也可以在表达式内使用，它的优先级比绝大部分的运算符要高。</p>
+            <p>举个例子：</p>
+            <pre>
+                <code class="language-javascript">
+                    let counter = 1;
+                    alert(2 * ++counter); // 4
+                </code>
+            </pre>
+            <h2>逗号,运算符</h2>
+            <p>逗号运算符,是最少最不常见的运算符之一。它能让我们处理多个语句，使用,将它们分开。每个语句都运行了，但是只有最后的语句会被返回。</p>
+            <p>举个例子：</p>
+            <pre>
+                <code class="language-javascript">
+                    let a = (1 + 2, 3 + 4);
+                    alert(a); // 7 (3 + 4的结果)
+                </code>
+            </pre>
+            <p>这里，第一个语句1+2运行了，但是它的结果被丢弃了，然后3+4运行，计算结果被返回。</p>
+            <p>逗号的运算级非常低，比=还低，因此上面例子中圆括号非常重要。</p>
+            <p>其实在for循环中我们经常用到逗号运算符：</p>
+            <pre>
+                <code class="language-javascript">
+                for (a = 1, len = 10; a &lt; 10; a++){
+                    ...
+                }      
+                </code>
+            </pre>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
