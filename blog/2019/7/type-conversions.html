@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>类型转换</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>类型转换</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月23日</p>
+            <p class="info">参考：<a href="https://zh.javascript.info/type-conversions">JavaScript.Info</a></p>
+            <h2>转换场景</h2>
+            <p>ToString——输出内容时发生转换，或通过String(value)进行显示转换；</p>
+            <p>ToNumber——进行算数操作时发生转换，或通过Number(value)进行显示转换；</p>
+            <p>ToNumber转换遵循如下规则：</p>
+            <ul>
+                <li>undefined => NaN</li>
+                <li>null => 0</li>
+                <li>true/false => 1 / 0</li>
+                <li>string => 字符串“按原样读取”，两端的空格被忽略。空白字符串变成0。出错变成NaN。</li>
+            </ul>
+            <p>ToBoolean——进行逻辑操作时发生转换，或通过Boolean(value)进行显示转换；</p>
+            <p>ToBoolean遵循以下规则：</p>
+            <ul>
+                <li>0, null, undefined, NaN, "" => false</li>
+                <li>其他值 => true</li>
+            </ul>
+            <h2>容易记错的点</h2>
+            <p>ToNumber转换中，undefined => NaN, 而非0；</p>
+            <p>ToBoolean转换中，"0"或" " => true，因为只有为空的字符串才会转换为false。</p>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
