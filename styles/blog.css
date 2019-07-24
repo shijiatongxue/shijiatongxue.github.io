@@ -17,7 +17,7 @@ header{
     width: 60%;
     margin: 0 auto;
     grid-template-rows: 50px;
-    grid-template-columns: repeat(3, 33.33%);
+    grid-template-columns: repeat(2, 50%);
     justify-items: center;
     align-items: center;
     color: #B21D30;
