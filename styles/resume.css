@@ -79,6 +79,10 @@ article{
     justify-items: center;
     justify-content: space-evenly; /* 控制项目之间以及项目与边框之间的间距：等距 */
 }
+.info{
+    font-size: 14px;
+    color: #A0A4A7;
+}
 p.github{
     display: grid;
     grid-template-rows: 40px;
