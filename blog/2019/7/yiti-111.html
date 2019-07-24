@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>壹题111：写个程序把 entry 转换成如下对象</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>壹题111：写个程序把 entry 转换成如下对象</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月24日</p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question">壹题</a></p>
+            <h2>题目</h2>
+            <pre>
+                <code class="language-js">
+                    var entry = {
+                        a: {
+                            b: {
+                                c: {
+                                dd: 'abcdd'
+                                }
+                            },
+                            d: {
+                                xx: 'adxx'
+                            },
+                            e: 'ae'
+                        }
+                    }
+
+                    // 要求转换成如下对象
+                    var output = {
+                        'a.b.c.dd': 'abcdd',
+                        'a.d.xx': 'adxx',
+                        'a.e': 'ae'
+                    }
+                </code>
+            </pre>
+            <h2>解题</h2>
+            <pre>
+                <code class="language-javascript">
+                    function fc(obj, arr = [], result = {}){
+                        for (const key in obj){
+                            if (obj.hasOwnProperty(key)){
+                                let now = arr.concat(key);
+                                if (typeof obj[key] === 'object') {
+                                    fc(obj[key], now, result);
+                                } else {
+                                    result[now.join('.')] = obj[key]; 
+                                }
+                            }
+                        }
+                        return result;
+                    }       
+                </code>
+            </pre>
+            <h2>分析</h2>
+            <p>这道题的关键在于，如何把父级元素的key传入到下一层的递归函数中，使用let关键字声明了一个now变量，赋值为父级key拼接当前key的数组。</p>
+            <p>注意，这里使用的是concat，concat不影响原来的数组，返回一个新数组。这样拼接当前key，同时也不影响父级的key。确保进入同级key的时候，父级key不会受影响。</p>
+            <p>如果不想重新定义一个变量，需要将上一次处理过的key弹出，不能影响下一次的调用：</p>
+            <pre>
+                <code class="language-javascript">
+                    function fc(obj, arr = [], result = {}){
+                    for (const key in obj){
+                        if (obj.hasOwnProperty(key)){
+                            arr.push(key);
+                            if (typeof obj[key] === 'object') {
+                                fc(obj[key], arr, result);
+                            } else {
+                                result[arr.join('.')] = obj[key];
+                            }
+                            // 把已经调过的同级key弹出
+                            arr.pop();
+                        }
+                    }
+                    return result;
+                }     
+                </code>
+            </pre>
+            <p>根据变量不要重复使用的原则，还是第一种更清晰易懂一点。</p>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>

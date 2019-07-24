@@ -34,7 +34,7 @@ header span{
     display: grid;
     width: 60%;
     margin: 0 auto;
-    grid-template-columns: repeat(3, 33.33%);
+    grid-template-columns: repeat(2, 50%);
     justify-items: center;
 }
 .main ul{
