@@ -56,6 +56,10 @@ header span{
     border-radius: 5px;
     background-color: #0055A8;
 }
+.border-bottom{
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
 /* TODO: flex布局 */
 /* .main{
     display: flex;
