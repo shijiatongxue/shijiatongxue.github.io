@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>壹题114：找出字符串中连续出现最多的字符和个数</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>壹题114：找出字符串中连续出现最多的字符和个数</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月26日</p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question">壹题</a></p>
+            <p class="info">参考：<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/220#issuecomment-515277519">youxfans</a></p>
+            <h2>题目</h2>
+            <pre>
+                <code class="language-js">
+                'abcaakjbb' => {'a':2,'b':2}
+                'abbkejsbcccwqaa' => {'c':3}
+                </code>
+            </pre>
+            <h2>解题</h2>
+            <pre>
+                <code class="language-javascript">
+                // 暴力解决，时间复杂度为O(N)
+                function fc(str){
+                    const len = str.length;
+                    let i, j, flag;
+                    let map = new Map();
+                    i = 0, flag = 0;
+                    
+                    while (i < len) {
+                        j = i + 1;
+                        while (j < len && str[j] === str[i]) {
+                            j += 1;
+                        }
+                        if (j-i >= flag){
+                            flag = j - i;
+                            map.set(str[i], j-i);
+                        }
+                        i = j;
+                    }
+                    
+                    let res = {};
+                    for (let key of map.keys()) {
+                        if (map.get(key) === flag) {
+                            res[key] = map.get(key);
+                        }
+                    }
+                    
+                    return res;
+                }
+                </code>
+            </pre>
+            <h2>优雅解决</h2>
+            <pre>
+                <code class="language-javascript">
+                function fc(str) {
+                    const arr = str.match(/(\w)\1*/g);
+                    const flag = Math.max(...arr.map(x => x.length));
+                    let res = {};
+                    for (let value of arr){
+                        if (value.length === flag) {
+                            res[value] = flag;
+                        }
+                    }
+                    return res;
+                }      
+                </code>
+            </pre>
+            <p>正则表达式中的\1指的是对前面\w的引用，如果\w为'a'则\1也表示为'a'，如果\w为'b'，它也为'b'。*表示\1重复的个数可以为0个或多个。因此它可以匹配连续1个或多个字符。</p>
+            <pre>
+                <code class="language-javascript">
+                "hello".match(/(\w)\1*/g);
+                
+                // 输出
+                // ["h", "e", "ll", "o"]
+                </code>
+            </pre>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
