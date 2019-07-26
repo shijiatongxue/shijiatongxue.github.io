@@ -11,7 +11,7 @@
         <article>
             <h1>Iterator</h1>
             <p class="info">作者：石嘉</p>
-            <p class="info">日期：2019年7月24日</p>
+            <p class="info">日期：2019年7月26日</p>
             <p class="info">参考：<a href="https://zh.javascript.info/iterable">JavaScript.Info</a></p>
             <p>迭代器是一个带有next方法的函数。next()返回结果的格式必须为{done:Boolean, value:any}，当done为true时，表示迭代结束，否则value必须是返回一个未被迭代的新值。</p>
             <h2>定义一个迭代器</h2>
@@ -59,6 +59,23 @@
                 <li>NodeList对象</li>
             </ul>
             <p>对于原生部署Iterator接口的数据结构，我们不用自己编写遍历器生成函数，for...of循环会自动遍历它们。</p>
+            <h2>可迭代对象和类数组对象</h2>
+            <ul>
+                <li>Itarables是应用于Symbol.iterator方法的对象。</li>
+                <li>Arry-likes是有索引和length属性的对象，所以它们很像数组。</li>
+            </ul>
+            <p>类数组对象只有实现了Symbol.iterator方法才可以迭代。</p>
+            <h2>Array.from</h2>
+            <p>Array.from可以将可迭代对象和类数组对象作为参数，返回一个真正的数组。</p>
+            <p>字符串也是类数组对象，使用Array.from我们将字符串进行拆分：</p>
+            <pre>
+                <code class="language-javascript">
+                let str = "hello";    
+                let chars = Array.from(str);
+
+                console.log(chars[0]); // 'h'
+                </code>
+            </pre>
         </article>
         <script src="https://shijiatongxue.github.io/js/prism.js"></script>
     </body>
