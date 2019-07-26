@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>Iterator</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>Iterator</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月24日</p>
+            <p class="info">参考：<a href="https://zh.javascript.info/iterable">JavaScript.Info</a></p>
+            <p>迭代器是一个带有next方法的函数。next()返回结果的格式必须为{done:Boolean, value:any}，当done为true时，表示迭代结束，否则value必须是返回一个未被迭代的新值。</p>
+            <h2>定义一个迭代器</h2>
+            <pre>
+                <code class="language-javascript">
+                function idMarker() {
+                    var index = 0;
+
+                    return {
+                        next: function () {
+                            return {done: false, index++};
+                        }
+                    };
+                }
+
+                var it = idMaker();
+                it.next().value; // 0
+                it.next().value; // 1
+                </code>
+            </pre>
+            <h2>默认Iterator接口</h2>
+            <p>ES6规定，默认的Iterator接口部署在数据结构的Symbol.iterator属性，或者说，一个数据结构只要有Symbol.iterator属性，就可以认为是“可遍历的”。</p>
+            <pre>
+                <code class="language-javascript">
+                const obj = {
+                    [Symbol.iterator]: function () {
+                        return {
+                            next: function () {
+                                return {done: true, value: 1};
+                            }
+                        };
+                    }
+                };
+                </code>
+            </pre>
+            <p>执行这个obj对象的Symbol.iterator属性会返回一个遍历器对象。该对象的根本特征就是具有next方法。每次调用next方法都会返回一个代表当前成员信息的对象，具有value和done两个属性。</p>
+            <h2>原生具备Iterator接口的数据结构</h2>
+            <ul>
+                <li>Array</li>
+                <li>Map</li>
+                <li>Set</li>
+                <li>String</li>
+                <li>TypedArray</li>
+                <li>函数的arguments对象</li>
+                <li>NodeList对象</li>
+            </ul>
+            <p>对于原生部署Iterator接口的数据结构，我们不用自己编写遍历器生成函数，for...of循环会自动遍历它们。</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
