@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ch">
+    <head>
+        <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+        <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+        <title>Map、Set、WeakMap和WeakSet</title>
+    </head>
+    <body>
+        <!-- 输入文章类别：JavaScript -->
+        <article>
+            <h1>Map、Set、WeakMap和WeakSet</h1>
+            <p class="info">作者：石嘉</p>
+            <p class="info">日期：2019年7月25日</p>
+            <p class="info">参考：<a href="https://zh.javascript.info/iterable">JavaScript.Info</a></p>
+            <h2>Map</h2>
+            <p>为了解决Object的键只能是字符串的问题，ES6新增加Map数据结构。它与Object类似，都是键值对的集合，但是“键”的范围不限于字符串。</p>
+            <p>主要的方法包括：</p>
+            <ul>
+                <li>new Map() - 创建Map。</li>
+                <li>map.set(key, value) - 设置键值对。</li>
+                <li>map.get(key) - 根据键返回值，如果不存在返回undefined。</li>
+                <li>map.has(key) - 如果键存在，返回true，否则返回false。</li>
+                <li>map.delete(key) - 移除该键的值。</li>
+                <li>map.clear() - 清空map。</li>
+                <li>map.size() - 返回当前元素个数。</li>
+            </ul>
+            <h2>将Object转化为Map</h2>
+            <p>当创建Map时，我们可以像这样传递一个数组（或其他可迭代对象）给构造函数：</p>
+            <pre>
+                <code class="language-javascript">
+                    let map = new Map([
+                        ['1', 'str1'],
+                        [1, 'num1'],
+                        [true, 'bool1']
+                    ]);
+                </code>
+            </pre>
+            <p>有一个内建方法Object.entries(obj)，可以返回一个对象的键值对数组，格式就和上面一样。</p>
+            <p>所以我们可以用一个对象来初始化一个Map，就像这样：</p>
+            <pre>
+                <code class="language-javascript">
+                    let map = new Map(Object.entries({
+                        name: "John",
+                        age: 30
+                    }));
+                </code>
+            </pre>
+            <p>这里Object.entries返回了键值对数组：[["name", "John"], ["age", 30]]。这正是Map需要的。</p>
+            <h2>遍历Map</h2>
+            <p>有3种方法可以遍历Map：</p>
+            <ul>
+                <li>map.keys() - 返回键的迭代器。</li>
+                <li>map.values() - 返回值的迭代器。</li>
+                <li>map.entries() - 返回[key, vlaue]迭代器入口，for...of默认会使用它。</li>
+            </ul>
+            <p>注意：和普通Object不同，迭代器的迭代顺序和插入顺序一致，Map会保留这个顺序。</p>
+            <p>另外，Map也有一个内建的forEach方法，和Array很像：</p>
+            <pre>
+                <code class="language-javascript">
+                    map.forEach( (value, key, map) => {
+                        alert(`${key}: ${value}`);
+                    })
+                </code>
+            </pre>
+            <h2>Set</h2>
+            <p>Set是一些值的集合，这个集合中的值所有值仅出现一次。</p>
+            <p>它的方法基本和Map相同，特有的方法为set.add，添加值，返回set本身。</p>
+            <p>迭代方法与Map相同，for...of，for...each，或者set.keys，set.values，set.entries。</p>
+            <p>值得注意的是，在set中无论迭代的是key还是value，其实都是value。</p>
+            <pre>
+                <code class="language-javascript">
+                    let set = new Set(["oranges", "apples", "bananas"]);
+                    
+                    for (let value of set) alert(value);
+                    
+                    // 和 forEach 相同：
+                    set.forEach((value, valueAgain, set) => {
+                        alert(value);
+                    });    
+                </code>
+            </pre>
+            <h2>WeakMap/WeakSet</h2>
+            <p>设计目的：解决对象引用手动释放问题。</p>
+            <p>WeakMap结构与Map结构类似，也用于生成键值对的集合。</p>
+            <p>WeakMap与Map的区别有以下两点：</p>
+            <ul>
+                <li>WeakMap只接受对象作为键名（null除外）。</li>
+                <li>WeakMap所指向的对象不计入垃圾回收机制。</li>
+            </ul>
+            <p>它的键名所引用的对象都是弱引用，即只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。</p>
+            <p>WeakMap仅有如下方法：</p>
+            <ul>
+                <li>weakMap.get(key)</li>
+                <li>weakMap.set(key, value)</li>
+                <li>weakMap.delete(key, value)</li>
+                <li>weakMap.has(key)</li>
+            </ul>
+            <p>WeakMap和WeakSet最显著的限制就是没有迭代器，也不能获取当前所有内容。它们的主要任务是作为对象的附加存储，该对象在其他地方存储或管理。</p>
+            <p>（完）</p>
+        </article>
+        <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+    </body>
+</html>
