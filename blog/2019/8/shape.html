@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ch">
+  <head>
+    <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+    <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+    <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+    <title>如何使用CSS画各种图形</title>
+    <style>
+      .square, .circle, .oval{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      .circle{
+        border-radius: 50px;
+      }
+      .oval{
+        width: 200px;
+        height: 100px;
+        border-radius: 100px / 50px;
+      }
+      .triangle{
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+      }
+      .parallelogram{
+        width: 100px;
+        height: 100px;
+        transform: skewX(-20deg);
+        background-color: red;
+      }
+      .trapezoid{
+        width: 100px;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-bottom: 100px solid red;
+        border-right: 50px solid transparent;
+      }
+      .pacman{
+        width: 0;
+        height: 0;
+        border-left: 60px solid red;
+        border-right: 60px solid transparent;
+        border-top: 60px solid red;
+        border-bottom: 60px solid red;
+        border-radius: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 输入文章类别：CSS -->
+    <article>
+      <h1>如何使用CSS画各种图形</h1>
+      <p class="info">作者：石嘉</p>
+      <p class="info">日期：2019年8月2日</p>
+      <p class="info">参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius">MDN border-radius
+</a></p>
+      <p>正方形、圆形、椭圆、三角形、平行四边形等。</p>
+      <h2>正方形</h2>
+      <p>设置width等于height：</p>
+      <div class="square"></div>
+      <h2>圆形</h2>
+      <p>设置border-radius：</p>
+      <p>当设置border-radius为一个参数时，这个数字为四个角的半径。由于这里width为100px，所以border-radius应该设置为宽度的一半。</p>
+      <pre>
+        <code class="language-css">
+          width: 100px;
+          height: 100px;
+          border-radius: 50px; 
+        </code>
+      </pre>
+      <div class="circle"></div>
+      <h2>椭圆</h2>
+      <p>设置两个参数的时候，分别为长轴长度和短轴长度。注意中间的斜杠必须有。</p>
+      <pre>
+        <code class="language-css">
+        width: 200px;
+        height: 100px;
+        border-radius: 100px / 50px;
+        </code>
+      </pre>
+      <div class="oval"></div>
+      <h2>三角形</h2>
+      <p></p>
+      <pre>
+        <code class="language-css">
+        width: 0;
+        height: 0;
+        border-left: 0 solid transparent;
+        border-right: 0px solid transparent;
+        border-bottom: 100px solid red;
+        </code>
+      </pre>
+      <div class="triangle"></div>
+      <h2>平行四边形</h2>
+      <pre>
+        <code class="language-css">
+        width: 100px;
+        height: 100px;
+        transform: skewX(-20deg);
+        background-color: red;
+        </code>
+      </pre>
+      <div class="parallelogram"></div>
+      <h2>梯形</h2>
+      <pre>
+        <code class="language-css">
+        width: 100px;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-bottom: 100px solid red;
+        border-right: 50px solid transparent;
+        </code>
+      </pre>
+      <div class="trapezoid"></div>
+      <h2>食豆人</h2>
+      <pre>
+        <code class="language-css">
+        width: 0;
+        height: 0;
+        border-left: 60px solid red;
+        border-right: 60px solid transparent;
+        border-top: 60px solid red;
+        border-bottom: 60px solid red;
+        border-radius: 60px;
+        </code>
+      </pre>
+      <div class="pacman"></div>
+      <h2>心形</h2>
+      <p>（未完待续）</p>
+    </article>
+    <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+  </body>
+</html>
