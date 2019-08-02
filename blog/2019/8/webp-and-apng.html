@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ch">
+  <head>
+    <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+    <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+    <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+    <title>WebP和APNG</title>
+  </head>
+  <body>
+    <!-- 输入文章类别： -->
+    <article>
+      <h1>WebP和APNG</h1>
+      <p class="info">作者：石嘉</p>
+      <p class="info">日期：2019年8月2日</p>
+      <p class="info">参考：<a href="https://css-tricks.com/using-webp-images/">CSS Tricks-Using WebP Images</a></p>
+      <h2>WebP</h2>
+      <p>WebP是一种新型的图片格式，第一次发布时间在2010年by Google。相同质量的图像，与JPEG相比，WebP需要更小的体积。大约是JPEG的2/3。</p>
+      <p>由于是谷歌的技术，目前只可以被Bink系列的浏览器支持。有接近70%的浏览器可以使用WebP图像。</p>
+      <p>一种使用WebP图像的方法：</p>
+      <pre>
+        <code class="language-html">
+          &lt;picture&gt;
+            &lt;source srcset=&quot;tacos-2x.webp&quot; type=&quot;image/webp&quot;&gt;
+            &lt;source srcset=&quot;tacos-2x.jpeg&quot; type=&quot;image/jpeg&quot;&gt;
+            &lt;img src=&quot;tacos-2x.jpeg&quot;&gt;
+          &lt;/picture&gt;
+        </code>
+      </pre>
+      <picture style="text-align:center; display: block">
+        <source srcset="img/tacos-2x.webp" type="image/webp">
+        <source srcset="img/GitHub-Mark-Light-32px.png" type="image/png">
+        <img src="img/GitHub-Mark-Light-32px.png">
+      </picture>
+      <p style="text-align:center">左：JPEG，56.7KB；右：WebP，38KB。</p>
+      <h2>APNG</h2>
+      <p>APNG（Animated Portable Network Graphics）格式是PNG的位图动画拓展，但未获得PNG组织官方认可。它的拓展名为.png或.apng，初始版本诞生于2008年。</p>
+      <img src="img/Animated_PNG_example_bouncing_beach_ball.png" alt="a bouncing ball in APNG format" style="display:block; margin: 0 auto;">
+      <p>（完）</p>
+    </article>
+    <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+  </body>
+</html>
