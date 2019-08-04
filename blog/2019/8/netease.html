@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ch">
+  <head>
+    <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+    <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+    <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+    <title>网易笔试</title>
+    <style>
+        .wrapper{
+          display: flex;
+          width: 500px;
+          height: 300px;
+          background: #333;
+          color: #ffffff;
+        }
+        .left{
+          flex: 3 1 50px;
+          background: red;
+        }
+        .right{
+          flex: 2 1 100px;
+          background: blue;
+        }
+      </style>
+  </head>
+  <body>
+    <!-- 输入文章类别：笔试题 -->
+    <article>
+      <h1>网易笔试</h1>
+      <p class="info">作者：石嘉</p>
+      <p class="info">日期：2019年8月4日</p>
+      <p class="info">参考：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-Tricks</a></p>
+      <p class="info">参考：<a href="https://blog.csdn.net/yanjiaye520/article/details/4647631">CSDN Microblue</a></p>
+      <p>不会的题目：flex的三个参数、bind和apply、最大公约数问题、二级菜单、对象根据规则去重。</p>
+      <h2>flex的三个参数</h2>
+      <h3>flex-grow</h3>
+      <p>定义item的放大比例。它接收一个没有单位的数字作为相应的比例。</p>
+      <p>如果所有的item设置都为1，则容器的大小被平均分配到各个item；如果一个item设置2，则这个item的大小是设置为1的item的2倍。</p>
+      <pre>
+        <code class="language-css">
+        .item {
+          flex-grow: 0; /* 默认为0 */
+        }
+        </code>
+      </pre>
+      <p>这个参数不可以设置为负数。</p>
+      <h3>flex-shrink</h3>
+      <p>定义item的缩小比例，默认大小为1。当空间不足时，item会按比例缩小。如果设置为0，则无论怎样都不缩小。</p>
+      <pre>
+        <code class="language-css">
+        .item {
+          flex-shrink: 1;
+        }
+        </code>
+      </pre>
+      <p>负数是不允许的。</p>
+      <h3>flex-basis</h3>
+      <p>它定义元素的默认大小，在剩下的空间被分配之前。它可以设置为长度（20%，5rem等）或者关键词。如果关键词设置为auto，则代表参考它的width和height属性。</p>
+      <pre>
+        <code class="language-css">
+        .item {
+          flex-basis: &lt;length&gt; | auto;
+        }
+        </code>
+      </pre>
+      <p>如果flex-basis设置为0，则不考虑content周围的额外空间；如果设置为auto，额外空间会根据flex-grow进行分配。</p>
+      <h3>flex</h3>
+      <p>flex是这三个属性的缩写，其中第二和第三个参数是可选的。flex的默认值为0 1 auto。</p>
+      <pre>
+        <code class="language-css">
+        .item{
+          flex: none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ]
+        }
+        </code>
+      </pre>
+      <p>推荐使用flex写法。</p>
+      <p>举例：</p>
+      <pre>
+        <code class="language-css">
+        .wrapper{
+          display: flex;
+          width: 500px;
+          height: 300px;
+          background: #333;
+          color: #ffffff;
+        }
+        .left{
+          flex: 3 1 50px;
+          background: red;
+        }
+        .right{
+          flex: 2 1 100px;
+          background: blue;
+        }
+        </code>
+      </pre>
+      <div class="wrapper">
+        <div class="left">260px</div>
+        <div class="right">240px</div>
+      </div>
+      <h2>bind和apply</h2>
+      <p>bind()方法会创建一个新函数。当这个函数被调用时，bind()的第一个参数将作为它运行时的this，之后的一序列参数将会在传递的实参前传入作为它的参数。</p>
+      <pre>
+        <code class="language-javascript">
+        var foo = {
+          value: 1
+        };
+
+        function bar(){
+          console.log(this.value);
+        }
+
+        var bindFoo = bar.bind(foo);
+        bindFoo(); // 1
+        </code>
+      </pre>
+      <p>call和apply则是使用新的this去直接调用、执行函数。</p>
+      <pre>
+        <code class="language-javascript">
+        bar.call(foo); // 1
+        </code>
+      </pre>
+      <h2><a href="gcd.html">大数的最大公约数问题</a></h2>
+      <h2>对象根据规则去重</h2>
+      <p>（未完待续）</p>
+    </article>
+    <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+  </body>
+</html>
