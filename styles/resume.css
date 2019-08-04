@@ -20,7 +20,7 @@ h1{
     padding: 0;
 }
 h2{
-    font-size: 24px;
+    font-size: 20px;
     color: #A0A4A7;
 }
 h2::after{
@@ -82,6 +82,8 @@ article{
 .info{
     font-size: 14px;
     color: #A0A4A7;
+    line-height: 14px;
+    margin: 10px 0;
 }
 p.github{
     display: grid;
