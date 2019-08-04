@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ch">
+  <head>
+    <link rel="icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+    <link rel="shortcut icon" href="https://shijiatongxue.github.io/images/sj.png" type="image/png">
+    <link rel="stylesheet" href="https://shijiatongxue.github.io/styles/article.css">
+    <title>valueOf()和toString()方法</title>
+  </head>
+  <body>
+    <!-- 输入文章类别：JavaScript -->
+    <article>
+      <h1>valueOf()和toString()方法</h1>
+      <p class="info">作者：石嘉</p>
+      <p class="info">日期：2019年8月4日</p>
+      <p class="info">参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf">MDN Object.prototype.valueOf()</a></p>
+      <p class="info">参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString">MDN Object.prototype.toString()</a></p>
+      <h2>Object.prototype.valueOf()</h2>
+      <p>语法</p>
+      <pre>
+        <code class="language-javascript">
+        object.valueof();
+        // 返回值为对象的原始值
+        </code>
+      </pre>
+      <p>不同类型对象valueOf()的返回值。</p>
+      <ul>
+        <li>Array：返回数组对象本身。</li>
+        <li>Object：返回对象本身。</li>
+        <li>Function：函数本身。</li>
+        <li>Date：时间戳，精确到毫秒。</li>
+        <li>Boolean：布尔值。</li>
+        <li>Number：数字。</li>
+        <li>String：字符串值。</li>
+      </ul>      
+      <p>Math和Error对象没有valueOf()方法。</p>
+      <p>示例</p>
+      <pre>
+        <code class="language-javascript">
+        // Array：返回数组对象本身
+        let arr = ["abc", true, 12];
+        console.log(arr.valueOf() === arr); // true 
+
+        // Object：返回对象本身
+        let obj = {name: "shi", age: 18, male: true};
+        console.log(obj.valueOf() === obj);
+        </code>
+      </pre>
+      <p>改写.prototype.valueOf</p>
+      <pre>
+        <code class="language-javascript">
+        function fc(n){
+          this.number = n;
+        }
+
+        fc.prototype.valueOf = function(){
+          return this.number;
+        }
+
+        let myObj = new fc(4);
+        myObj + 3; // 7
+        </code>
+      </pre>
+      <h2>Object.prototype.toString()</h2>
+      <p>语法</p>
+      <pre>
+        <code class="language-javascript">
+          object.toString()
+          // 返回表示该对象的字符串
+        </code>
+      </pre>
+      <p>描述</p>
+      <p>默认情况下，toString()方法被每个Object对象继承。如果此方法没有被覆盖，则返回“[object type]”。</p>
+      <p>示例</p>
+      <pre>
+        <code class="language-javascript">
+          // Object类型：返回默认值
+          let o = new Object();
+          o.toString(); // [object Object] 
+          
+          // Array类型：重写函数返回拼接值
+          let arr = [1, 2, 3, {name: "shi"}];
+          arr.toString(); // "1,2,3,[object Object]"
+          
+          // 为创建字符串，会调用数组每一项的toString()方法
+          let arr2 = [[1, 2], 2, 3];
+          arr2.toString(); // "1,2,2,3"
+        </code>
+      </pre>
+      <h2>包装类型Boolean的valueOf()和toString()方法</h2>
+      <p>对于包装类型Boolean，要留意它的valueOf()和toString()方法。</p>
+      <p>示例</p>
+      <pre>
+        <code class="language-javascript">
+          // Boolean类型
+          var falseObject = new Boolean(false);
+          falseObject.valueOf(); // false
+          
+          // 但是在进行逻辑判断时
+          falseObject && true; // true
+        </code>
+      </pre>
+      <hr>
+      <p>测试</p>
+      <pre>
+        <code class="language-javascript">
+        let arr = [1, 2, 3];
+        alert(arr.toString()); // 1,2,3
+        alert(arr.valueOf()); // 1,2,3
+        alert(arr); // 1,2,3
+
+        // alert()方法接收的参数为字符串
+        </code>
+      </pre>
+      <p>（完）</p>
+    </article>
+    <script src="https://shijiatongxue.github.io/js/prism.js"></script>
+  </body>
+</html>
