@@ -12,15 +12,54 @@ html, body{
     font-family: 'PingFang SC', 'Lantinghei SC', 'Microsoft YaHei', '微软雅黑', arial, '宋体', sans-serif;
     -webkit-print-color-adjust: exact;
 }
-h1{
-    line-height: 60px;
-    font-size: 32px;
-    text-align: center;
+h1, h2, h3, ul, li, p{
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+/* 整体布局 */
+article{
+    width: 595px;
+    height: 841px;
+    margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+}
+.header{
+    height: 100px;
+    background-color: #0c101b;
+    background-image: url('../images/resume_bg.png');
+    color: #fff;
+}
+.main{
+    padding:0 80px;
+}
+.footer{
+    color: #FFF;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: repeat(2, 50%);
+    align-items: center;
+    justify-items: center;
+    height: 20px;
+    background-color: #0c101b;
+    background-image: url('../images/resume_bg.png');
+    position: absolute;
+    top: 821px;
+    width: 100%;
+}
+
+/* 字体 */
+h1{
+    line-height: 60px;
+    font-size: 30px;
+    text-align: center;
+}
 h2{
-    font-size: 20px;
+    font-size: 16px;
     color: #A0A4A7;
 }
 h2::after{
@@ -31,46 +70,28 @@ h2::after{
     height: 1px;
 }
 h3{
-    font-size: 20px;
+    font-size: 14px;
 }
 ul li, p{
-    font-size: 16px;
+    font-size: 14px;
 }
-ul{
-    padding-left: 0;
+
+/* 间距 */
+h2{
+    padding-top: 5px;
 }
 li{
-    list-style-position: outside;
-    list-style: none;
-    background-image: url('../images/li_bg_10_gray.png');
-    background-repeat: no-repeat;
-    background-position: 0 0;
+    list-style-position: inside;
+    line-height: 24px;
+}
+p.info{
+    font-size: 14px;
+    line-height: 20px;
     padding-left: 20px;
-    margin-bottom: 10px;
+    color: #A0A4A7;
 }
-li.no_style{
-    background-image: none;
-}
-div{
-    margin: 0;
-    padding: 0;
-}
-article{
-    width: 595px;
-    height: 841px;
-    margin: 0 auto;
-    background-color: #fff;
-    position: relative;
-}
-.main{
-    padding:0 20px;
-}
-.header{
-    height: 100px;
-    background-color: #0c101b;
-    background-image: url('../images/resume_bg.png');
-    color: #fff;
-}
+
+/* 个人信息 */
 .detail{
     display: grid;
     grid-template-rows: 40px;
@@ -79,12 +100,8 @@ article{
     justify-items: center;
     justify-content: space-evenly; /* 控制项目之间以及项目与边框之间的间距：等距 */
 }
-.info{
-    font-size: 14px;
-    color: #A0A4A7;
-    line-height: 14px;
-    margin: 10px 0;
-}
+
+/* 头部github图标 */
 p.github{
     display: grid;
     grid-template-rows: 40px;
@@ -101,21 +118,8 @@ p.github span.logo{
     width: 20px;
     height: 40px;
 }
-/* 底部网格布局 */
-.footer{
-    color: #FFF;
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: repeat(2, 50%);
-    align-items: center;
-    justify-items: center;
-    height: 20px;
-    background-color: #0c101b;
-    background-image: url('../images/resume_bg.png');
-    position: absolute;
-    top: 821px;
-    width: 100%;
-}
+
+/* 底部打印 */
 .footer p{
     font-size: 12px;
 }
