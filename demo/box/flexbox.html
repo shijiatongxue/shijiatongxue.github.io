@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <title>flex三栏布局</title>
+  <style>
+    .wrapper{
+      display: flex;
+      /* flex-direction flex-wrap */
+      flex-flow: row wrap;
+      /* 文本居中显示 */
+      text-align: center;
+    }
+    .wrapper > * {
+      padding: 10px;
+      /* TODO: */
+      flex: 1 100%;
+    }
+    .header{
+      background: tomato;
+    }
+    .footer{
+      background: lightgreen;
+    }
+    .main{
+      text-align: left;
+      background: deepskyblue;
+    }
+    .aside-1{
+      background: gold;
+    }
+    .aside-2{
+      background: hotpink;
+    }
+    @media all and (min-width: 600px) {
+      .aside { flex: 1 0 0; }
+    }
+
+    @media all and (min-width: 800px) {
+      .main    { flex: 3 0px; }
+      .aside-1 { order: 1; } 
+      .main    { order: 2; }
+      .aside-2 { order: 3; }
+      .footer  { order: 4; }
+    }
+    body{
+      padding: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">这是头部</header>
+    <article class="main">
+      <p>从英文翻译而来-在文学理论中，文本是任何可以“阅读”的对象，无论这个对象是文学作品，街道标志，城市街区建筑物的布置，还是服装风格。它是一组连贯的标志，传递某种信息性信息。这组符号根据信息性消息的内容来考虑，而不是根据其物理形式或其表示的媒介来考虑。</p>
+    </article>
+    <aside class="aside aside-1">侧边栏-1</aside>
+    <aside class="aside aside-2">侧边栏-2</aside>
+    <footer class="footer">这是底部</footer>
+  </div>
+</body>
+</html>
