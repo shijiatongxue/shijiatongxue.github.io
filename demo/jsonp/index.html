@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <title>JSONP跨域测试</title>
+</head>
+<body>
+  <p>请求网址：https://httpbin.org/json</p>
+  <p>主页网址：https://shijiatongxue.github.io/demo/jsonp/index.html</p>
+  <p id="container"><span>收到内容：</span></p>
+  <script>
+    // 动态建立jsonp请求
+    function handleResponse(response) {
+      alert('hello')
+      document.getElementById('container').innerText = response;
+    }
+    var script = document.createElement('script');
+    script.src = 'https://httpbin.org/json?callback=handleResponse';
+    document.body.insertBefore(script, document.body.firstChild);
+  </script>
+</body>
+</html>
