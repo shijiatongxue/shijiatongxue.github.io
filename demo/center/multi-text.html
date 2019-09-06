@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>多行文本垂直居中</title>
+  <style>
+    .box{
+      height: 300px;
+      background: red;
+      display: table;
+    }
+    .box > p{
+      vertical-align: middle;
+      display: table-cell;
+    }
+    .box2{
+      height: 300px;
+      background: pink;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p>多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中多行文本垂直居中</p>
+  </div>
+  <div class="box2">
+    <p>今天天气不错</p>
+    <p>今天天气不错</p>
+    <p>今天天气不错</p>
+    <p>今天天气不错</p>
+  </div>
+</body>
+</html>
