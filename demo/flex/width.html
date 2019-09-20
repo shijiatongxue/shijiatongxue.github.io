@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div style="width: 1000px; display: flex;">
+    <div id="a" style="flex-basis: 50%; flex-grow: 1; background: red;">a</div>
+  </div>
+  <div id="b" style="width: 500px; background: red;">b</div>
+  <div style="width: 1000px; display: flex;">
+    <div id="c" style="flex-basis: 50%; flex-shrink: 0; background: red;">c</div>
+    <div style="flex-basis: 75%; flex-grow: 5;"></div>
+  </div>
+  <div style="width: 500px;">
+    <div id="d" style="width: 100%; position:absolute; background:red;">d</div>
+  </div>
+</body>
+</html>
