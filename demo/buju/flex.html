@@ -16,24 +16,27 @@
             .left{
                 width: 300px;
                 background-color: red;
+                order: 1;
             }
             .right{
                 width: 300px;
                 background-color: blue;
+                order: 3
             }
             .main{
                 width: 100%;
                 /* 或者设置flex*/
                 /* flex: 1; */
                 background-color: green;
+                order: 2;
                 
             }
         </style>
     </head>
     <body>
         <div class="wrap">
-            <div class="left"></div>
             <div class="main"></div>
+            <div class="left"></div>
             <div class="right"></div>
         </div>
     </body>
