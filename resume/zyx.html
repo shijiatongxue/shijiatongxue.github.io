@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" charset="utf-8">
+  <link rel="icon" href="../images/sj.png" type="image/png">
+  <link rel="shortcut icon" href="../images/sj.png" type="image/png">
+  <title>朱亚新的简历</title>
+  <link rel="stylesheet" href="../styles/zyx.css">
+  <link rel="stylesheet" href="../styles/zyx.css" media="print">
+  <!-- javascript文件 -->
+  <script src="../js/jquery.js"></script>
+  <script src="https://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+  <script src="../js/jquery.jqprint-0.3.js"></script>
+  <script>
+    $(function () {
+      $("#btn").click(function () {
+        $('#resume').jqprint({})
+      });
+    });
+  </script>
+
+<body>
+  <article id="resume">
+    <div class="header">
+      <div class="intro">
+        <h1>朱亚新</h1>
+        <div class="detail">
+          <p>射频工程师</p>
+          <p>15527341205</p>
+          <p>1337844654@qq.com</p>
+        </div>
+      </div>
+      <img src="zyx.jpg" alt="证件照">
+    </div>
+    <div class="main">
+      <h2>教育背景</h2>
+      <ul>
+        <li>
+          <p>2014.09-2018.06</p>
+          <p>华中科技大学本科</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;电子科学与技术</p>
+        </li>
+        <p class="info">GPA：89/100、CET6：525</p>
+        <p class="info">保研本校、华中科技大学校三好学生</p>
+        <p class="info">华中科技大学优秀毕业生、华中科技大学优秀学生干部</p>
+        <li>
+          <p>2018.09-2021.06</p>
+          <p>华中科技大学硕士</p>
+          <p>电磁场与微波技术</p>
+        </li>
+        <p class="info">GPA：92.5/100</p>
+        <p class="info">电子系前十名；华中科技大学一等学业奖学金；华中科技大学知行奖学金</p>
+      </ul>
+      <h2>项目经历</h2>
+      <ul>
+        <li>
+          <p>2018.08-2019.03</p>
+          <p>基于卫星导航天线及低噪放组件设计</p>
+        </li>
+        <p class="info">基于卫星导航天线及低噪放组件设计:主要负责系统中低噪放组件部分的设计加工。设计了一款包含三个导航频段的双通道低噪放组件。主要工作内容包含电路设计，版图设计，元器件采买，电路焊接，实物测试等。</p>
+        <li>
+          <p>2019.01-2019.10</p>
+          <p>基于自由空间法的电磁参数测试系统</p>
+        </li>
+        <p class="info">主要负责透镜天线的设计以及测试原理的理论分析。使用 CST 软件仿真设计 W 波段透镜喇叭天线；借助 MATLAB 等工具对测试原理进行理论验证；并提出可行的系统较准方法。</p>
+        <li>
+          <p>2019.08-至今</p>
+          <p>毫米波金属腔阵列天线设计</p>
+        </li>
+        <p class="info">设计了中心频率为 94GHz 的毫米波金属腔阵列天线。主要分为双极化和圆极化两种金属腔阵列天线。在保证高增益的情况下，实现双极化和圆极化两种特殊应用。</p>
+      </ul>
+      <!-- <h2>我的荣誉</h2>
+      <ul>
+        <li>华中科技大学一等学业奖学金</li>
+        <li>华中科技大学知行奖学金</li>
+        <li>华中科技大学校三好学生</li>
+        <li>华中科技大学优秀毕业生</li>
+        <li>华中科技大学优秀学生干部</li>
+      </ul> -->
+      <h2>技能特长</h2>
+      <ul>
+        <li>熟练：电磁仿真软件 HFSS/CST；</li>
+        <li>熟练：电路设计软件 ADS；</li>
+        <li>熟练：版图设计软件 AD；</li>
+        <li>简单使用：编程计算工具 MATLAB；</li>
+        <li>熟练：网分、频谱仪、噪声分析仪等测试设备。</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 打印简历 -->
+  <div class="printme">
+    <button class="btn btn-default btn-lg" id="btn">打印</button>
+  </div>
+
+</body>
+
+</html>
