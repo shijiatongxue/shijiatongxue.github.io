@@ -1,107 +1,101 @@
-/*重设样式*/
-html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote{
-    margin: 0;
-    padding: 0;
+@import url("reset.css");
+@import url("normalize.css");
+
+html, body {
+    width: 100%;
     font-family: Raleway, sans-serif;
-    font-size: 100%;
-    font-weight: normal;
+    font-size: 16px;
 }
-/*基本样式*/
-html{
-    background-color: #FFF;
+
+p, li {
+    margin-bottom: 10px;
 }
-p{
-    font-size: 1em;
-    padding: 5px 0;
+
+li { 
+    list-style-position: inside;
 }
+
+ul li {
+    list-style-type: decimal;
+}
+
+ol li {
+    list-style-type: disc;
+}
+
 a{
     text-decoration-line: none;
     color: #1e88e5;
 }
-li{
-    list-style-position: inside;
-    padding: 5px 0;
+
+header {
+    background: #000 url(../images/bg-mountain.jpg) fixed no-repeat;
+    color: #FFF;
 }
-/*样式*/
-.line{
-    border-bottom:1px #000 solid;
-    margin: 20px 0;
-}
-.header{
-    background: #263238 url(../images/bg-mountain.jpg) fixed top center no-repeat;
-    background-size: auto auto;
-    width: 100%;
-}
-.header .container{
-    width: 60%;
-    height: 100%;
+
+header .container {
+    padding-top: 100px;
+    max-width: 675px;
     margin: 0 auto;
-    padding:150px 15px 0 15px;
 }
-.header #myphoto{
-    display: inline-block;
-}
-.header img{
+
+header img {
     width: 200px;
     height: 200px;
     border-radius: 100px;
     border: 3px #FFF solid;
 }
-.header img.small{
+header .introduction {
+    display: inline-block;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.introduction .github{
     width: 50px;
     height: 50px;
     border: none;
 }
-.header #name{
+.introduction .name{
     font-size: 2em;
 }
-.header #myself{
-    display: inline-block;
-    padding-top: 10px;
-    padding-left: 20px;
-    color: #FFF;
+
+main {
+    max-width: 675px;
+    margin: 0 auto;
 }
-.main{
-    background-color: #FFF;
-    width: 60%;
-    margin-top: 0;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 15px;  /*中间部分顶部空隙*/
+main section {
+    margin-top: 10px;
 }
-.intro div{
-    padding: 10px 0;
+main .line{
+    border-bottom: 1px #000 solid;
+    margin: 20px 0;
 }
-.intro #myname{
+main .myname {
     display: none;
 }
-p.large{
-    padding-top: 0; /*由于分割线已经有margin，这里不用再设置padding了*/
-    padding-bottom: 15px;
-    font-size: 40px;
-    margin: 0 auto 0 auto;
+section .title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+footer p{
     text-align: center;
 }
-.footer p{
-    text-align: center;
-}
+
 @media (max-width: 790px){
-    .container #myself{
-        display: none;
+    header .container{
+        height: 210px;
+        text-align: center;
+        padding-top: 5px;
     }
-    /*头部姓名消失的时候，头像居中，下部显示出姓名*/
-    .container #myphoto{
+    header img{
         display: inline-block;
     }
-    .header{
-        text-align: center;
-        height: 210px;
+    main {
+        width: 90%;
     }
-    .header .container{
-        padding: 2px;
-    }
-    /*内容区域居中显示姓名*/
-    .intro #myname{
+    main .myname {
         display: block;
         text-align: center;
     }

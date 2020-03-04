@@ -1,115 +1,127 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--让页面的宽度匹配手机显示器的真实宽度即可-->
-    <meta name="viewport" content="width=device-width" charset="utf-8">
-    <!-- 标题栏和收藏栏小图标 -->
-    <link rel="icon" href="images/sj.png" type="image/png">
-    <link rel="shortcut icon" href="images/sj.png" type="image/png">
-    <!-- 引入字体 -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-    <title>Welcome to Shi Jia's Page.</title>
-    <link href="styles/main.css?v=200303_1" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <div class="header">
-      <div class="container">
-        <div id="myphoto">
-          <img src="images/me.jpg" alt="My photo">
-        </div>
-        <div id="myself">
-          <p id="name">石嘉同学</p>
-          <p>前端工程师</p>
-          <p>shijiatongxue@qq.com</p>
-          <p><a href="https://github.com/shijiatongxue" target="blank"><img class="small" src="images/github.png" alt="github logo" ></a></p> 
-        </div>
-      </div>
-    </div>
-    <div class="main">
-      <div class="containner">
-        <div class="intro">
-          <!-- 小屏幕中显示 -->
-          <div id="myname"><strong>石嘉同学</strong></div>
-          <div>
-            <p><strong>时间轴：</strong></p>
-            <p>2018-现在：华中科技大学，计算机科学与技术。导师：金海、谢夏。</p>
-            <p>2014-2018：兰州大学，教育技术学。</p>
-            <p>2011-2014：汤阴县第一中学。</p>
-          </div>
-          <div>
-            <p><strong>状态：</strong></p>
-            <p>2020年1月：<a href="./resume/index.html">个人简历</a></p>
-            <p>2019年11月：<a href="https://github.com/shijiatongxue/NoteBook">博客</a></p>
-            <p>2019年11月：签约ByteDance</p>
-          </div>
-        </div>
-        <div class="line"></div>
-        <div class="plan">
-          <p class="large">TODO</p>
-          <ul>
-            <li>3-4月：毕业论文</li>
-          </ul>
-        </div>
-        <div class="line"></div>
-        <div class="book">
-            <p class="large">书单</p>
-            <ol>
-              <li>价值投资实战手册</li>
-              <li>房价的本质</li>
-              <li>金融的逻辑</li>
-              <li>简读中国史👍</li>
-              <li>巴菲特之道，2020.2</li>
-              <li>女生呵护指南</li>
-              <li>彼得·林奇的成功投资</li>
-              <li>CSS揭秘，2020.1</li>
-              <li>简约至上</li>
-              <li>腾讯传，2019.12</li>
-              <li>JavaScript模式</li>
-              <li>把时间当做朋友，2019.11</li>
-              <li>深入浅出Vue.js👍，2019.10</li>
-              <li>汴京之围👍，2019.9</li>
-              <li>炒股的智慧👍</li>
-              <li>被讨厌的勇气</li>
-              <li>巴菲特致股东的信，2019.7</li>
-              <li>网络是怎样连接的👍👍</li>
-              <li>上帝掷骰子吗？👍👍</li>
-              <li>给大家看的设计书👍，2019.6</li>
-              <li>浪潮之巅👍👍</li>
-              <li>JavaScript语言精粹</li>
-              <li>人月神话</li>
-              <li>精通CSS</li>
-              <li>锋利的jQuery</li>
-              <li>HTML5秘籍</li>
-              <li>Just For Fun</li>
-              <li>CSS实战手册👍，2019.5</li>
-              <li>算法图解，2019.4</li>
-            </ol>
-        </div>
-        <div class="line"></div>
-        <div class="cancel">
-          <p class="large">搁置</p>
-          <ul>
-            <li><s>1月：学习Koa2框架，完成一个Koa2项目；</s></li>
-            <li>《高性能网站建设指南》、《jQuery技术内幕》</li>
-            <li>《Linux内核完全剖析》，非常底层</li>
-            <li>《HTTP权威指南》，需要时重读</li>
-          </ul>
-        </div>
-        <div class="line"></div>
-      </div>
-    </div>
-    <div class="footer">
-      <p>powered by Shi Jia<p>
-    </div>
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140213059-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'UA-140213059-1');
-    </script>
-  </body>
+<head>
+  <!--让页面的宽度匹配手机显示器的真实宽度即可-->
+  <meta name="viewport" content="width=device-width" charset="utf-8">
+  <!-- 标题栏和收藏栏小图标 -->
+  <link rel="icon" href="images/sj.png" type="image/png">
+  <link rel="shortcut icon" href="images/sj.png" type="image/png">
+  <!-- 引入字体 -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <title>Welcome to Shi Jia's Page.</title>
+  <link href="styles/main.css?v=200303_1" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <img src="images/me.jpg" alt="my photo">
+      <div class="introduction">
+        <p class="name">石嘉同学</p>
+        <p>前端工程师</p>
+        <p>shijiatongxue@qq.com</p>
+        <p>
+          <a href="https://github.com/shijiatongxue" target="blank">
+            <img class="github" src="images/github-white.png" alt="github logo">
+          </a>
+        </p>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <section>
+      <!-- 小屏幕中显示 -->
+      <div class="myname"><strong>石嘉同学</strong></div>
+      <div>
+        <p><strong>时间轴：</strong></p>
+        <p>2018-现在：华中科技大学，计算机科学与技术。导师：金海、谢夏。</p>
+        <p>2014-2018：兰州大学，教育技术学。</p>
+        <p>2011-2014：汤阴县第一中学。</p>
+      </div>
+      <div>
+        <p><strong>状态：</strong></p>
+        <p>2020年1月：<a href="./resume/index.html">个人简历</a></p>
+        <p>2019年11月：<a href="https://github.com/shijiatongxue/NoteBook">博客</a></p>
+        <p>2019年11月：签约ByteDance</p>
+      </div>
+    </section>
+
+    <div class="line"></div>
+    
+    <section>
+      <div class="title">TODO</div>
+      <ul>
+        <li>3-4月：毕业论文</li>
+      </ul>
+    </section>
+    <div class="line"></div>
+    <section>
+      <div class="title">书单</div>
+      <ol>
+        <li>价值投资实战手册</li>
+        <li>房价的本质</li>
+        <li>金融的逻辑</li>
+        <li>简读中国史👍</li>
+        <li>巴菲特之道，2020.2</li>
+        <li>女生呵护指南</li>
+        <li>彼得·林奇的成功投资</li>
+        <li>CSS揭秘，2020.1</li>
+        <li>简约至上</li>
+        <li>腾讯传，2019.12</li>
+        <li>JavaScript模式</li>
+        <li>把时间当做朋友，2019.11</li>
+        <li>深入浅出Vue.js👍，2019.10</li>
+        <li>汴京之围👍，2019.9</li>
+        <li>炒股的智慧👍</li>
+        <li>被讨厌的勇气</li>
+        <li>巴菲特致股东的信，2019.7</li>
+        <li>网络是怎样连接的👍👍</li>
+        <li>上帝掷骰子吗？👍👍</li>
+        <li>给大家看的设计书👍，2019.6</li>
+        <li>浪潮之巅👍👍</li>
+        <li>JavaScript语言精粹</li>
+        <li>人月神话</li>
+        <li>精通CSS</li>
+        <li>锋利的jQuery</li>
+        <li>HTML5秘籍</li>
+        <li>Just For Fun</li>
+        <li>CSS实战手册👍，2019.5</li>
+        <li>算法图解，2019.4</li>
+      </ol>
+    </section>
+
+    <div class="line"></div>
+
+    <section>
+      <div class="title">搁置</div>
+      <ul>
+        <li><s>1月：学习Koa2框架，完成一个Koa2项目；</s></li>
+        <li>《高性能网站建设指南》、《jQuery技术内幕》</li>
+        <li>《Linux内核完全剖析》，非常底层</li>
+        <li>《HTTP权威指南》，需要时重读</li>
+      </ul>
+    </section>
+    <div class="line"></div>
+  </main>
+
+  <footer>
+    <p>powered by Shi Jia</p>
+  </footer>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140213059-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-140213059-1');
+  </script>
+</body>
+
 </html>
