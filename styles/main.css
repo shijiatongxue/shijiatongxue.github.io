@@ -70,9 +70,6 @@ main .line{
     border-bottom: 1px #000 solid;
     margin: 20px 0;
 }
-main .myname {
-    display: none;
-}
 section .title {
     font-size: 2em;
     text-align: center;
@@ -92,11 +89,10 @@ footer p{
     header img{
         display: inline-block;
     }
+    header .introduction {
+        display: none;
+    }
     main {
         width: 90%;
-    }
-    main .myname {
-        display: block;
-        text-align: center;
     }
 }
