@@ -1,3 +1,3 @@
-# shijiatongxue.github.io
+# shijiatongxue.com
 
-欢迎访问我的[主页](https://shijiatongxue.github.io)
+我的[主页](https://shijiatongxue.com)

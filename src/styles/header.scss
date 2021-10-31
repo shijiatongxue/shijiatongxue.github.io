@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    line-height: 60px;
+    background: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+
+    .logo {
+        flex: 1;
+        padding-left: 30px;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .theme {
+        flex: 1;
+        text-align: right;
+        padding-right: 30px;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        width: 935px;
+        font-size: 14px;
+        font-weight: 600;
+
+        div {
+            width: 130px;
+
+            &.disabled {
+                cursor: not-allowed;
+                color: rgba(249, 249, 249, 0.35);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}
