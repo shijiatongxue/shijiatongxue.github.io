@@ -9,7 +9,7 @@ module.exports = {
         app: './src/index.tsx'
     },
     output: {
-        path: resolve('./dist'),
+        path: resolve('./docs'),
         filename: '[name].[contenthash].bundle.js',
         assetModuleFilename: 'static/[hash][ext][query]'
     },
@@ -76,7 +76,7 @@ module.exports = {
     devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
     devServer: {
         static: {
-            directory: path.join(__dirname, 'dist')
+            directory: path.join(__dirname, 'docs')
         },
         port: 3000,
         open: false,
