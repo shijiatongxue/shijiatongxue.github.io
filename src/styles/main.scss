@@ -1,6 +1,8 @@
 .main {
     display: flex;
     justify-content: center;
-    background: var(--semi-color-bg-0);
+    width: 935px;
     min-height: calc(100vh - 140px);
+    margin: 0 auto;
+    background: var(--semi-color-bg-0);
 }

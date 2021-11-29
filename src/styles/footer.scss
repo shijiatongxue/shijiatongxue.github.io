@@ -7,11 +7,16 @@
     color: #fff;
     position: sticky;
     bottom: 0;
+    z-index: 999;
 
     .copyright {
         flex: 1;
         font-size: 14px;
         padding-left: 30px;
         text-align: center;
+    }
+
+    a {
+        color: #fff;
     }
 }

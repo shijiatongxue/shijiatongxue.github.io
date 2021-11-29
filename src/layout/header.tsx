@@ -5,7 +5,7 @@ import { Button } from '@douyinfe/semi-ui';
 import { IconSun, IconMoon, IconGithubLogo } from '@douyinfe/semi-icons';
 
 import '../styles/header.scss';
-import { MENUS } from 'const';
+import { MENUS } from 'const/menus';
 
 export default function Header() {
     const isDarkMode = document.body.hasAttribute('theme-mode');
@@ -51,6 +51,11 @@ export default function Header() {
     useEffect(() => {
         const themeMode = window.localStorage.getItem('theme-mode');
         themeMode && setMode(themeMode);
+        if (themeMode === 'dark') {
+            document.body.setAttribute('theme-mode', 'dark');
+        } else {
+            document.body.setAttribute('theme-mode', 'light');
+        }
     }, []);
 
     return (
@@ -58,7 +63,7 @@ export default function Header() {
             <div className="logo">石嘉同学</div>
             <div className="nav">
                 {
-                    MENUS.map((menu, index) => menu.disabled ? <div className="disabled">{menu.text}</div> : <Link to={menu.path}><div>{menu.text}</div></Link>)
+                    MENUS.map((menu, index) => menu.disabled ? <div key={menu.text} className="disabled">{menu.text}</div> : <Link key={menu.path} to={menu.path}><div>{menu.text}</div></Link>)
                 }
             </div>
             <div className="theme">

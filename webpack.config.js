@@ -65,6 +65,9 @@ module.exports = {
                 test: /\.(gif|png|jpeg|jpg)$/i,
                 type: 'asset/resource',
                 exclude: /node_modules/,
+                generator: {
+                    filename: 'static/[name].[ext]'
+                }
             },
             {
                 test: /\.(woff(2)?|eot|ttf|otf|svg)$/,
@@ -76,12 +79,14 @@ module.exports = {
     devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
     devServer: {
         static: {
-            directory: path.join(__dirname, 'docs')
+            directory: path.join(__dirname, './src/static'),
+            publicPath: '/static'
         },
         port: 3000,
         open: false,
         hot: true,
         compress: true,
+        historyApiFallback: true
     }
 };
 

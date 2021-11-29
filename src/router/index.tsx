@@ -1,24 +1,16 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
-import Home from '../pages/home';
-import Blog from '../pages/blogs';
-import About from '../pages/about';
+import { Route, Routes } from 'react-router-dom';
+import { MENUS } from '../const/menus';
 
 export default function Router() {
     return (
-        <>
-            <Switch>
-                <Route path="/blogs">
-                    <Blog />
-                </Route>
-                <Route path="/about">
-                    <About />
-                </Route>
-                <Route path="/">
-                    <Home />
-                </Route>
-            </Switch>
-        </>
+        <Routes>
+            {
+                MENUS.map(menu => (
+                    <Route key={menu.path} path={menu.path} element={<menu.component />}>
+                    </Route>
+                ))
+            }
+        </Routes>
     );
 }
