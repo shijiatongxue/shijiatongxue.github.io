@@ -8,6 +8,12 @@ export interface BookProps {
 
 const READING_BOOKS: BookProps[] = [
     {
+        title: '成为乔布斯',
+        url: 'https://img9.doubanio.com/view/subject/s/public/s28948876.jpg',
+        star: 4,
+        date: '2021.12',
+    },
+    {
         title: 'JavaScript 权威指南',
         url: 'https://img9.doubanio.com/view/subject/s/public/s9056065.jpg',
         star: 5,
