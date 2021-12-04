@@ -2,9 +2,26 @@ const parser = require('xml2json');
 const fs = require('fs');
 const path = require('path')
 const get = require('lodash/get');
+const axios = require('axios');
 
-function getPhotosJSON(xmlPath) {
-    const xml = fs.readFileSync(path.resolve(__dirname, xmlPath));
+async function getPhotosXML({ token, url }) {
+    const res = await axios(url, {
+        headers: {
+            'Authorization': token,
+        }
+    });
+
+    const xml = get(res, 'data', '');
+
+    if (!xml) {
+        console.warn('get photos xml content error', res);
+        process.exit(1);
+    }
+
+    return xml;
+}
+
+function getPhotosJSON(xml) {
     const json = JSON.parse(parser.toJson(xml));
     return json;
 }
@@ -21,6 +38,9 @@ function getPhotosURL({ urlPrefix, json }) {
             }
         }
     }
+
+    urlList.reverse();
+
     return urlList;
 }
 
@@ -29,11 +49,11 @@ function saveURL({ urlPath, urlList }) {
     fs.writeFileSync(path.resolve(__dirname, urlPath), photos);
 }
 
-function main() {
-    const xmlPath = './photos.xml';
+async function main() {
     const urlPrefix = 'https://s-1307850796.cos.ap-beijing.myqcloud.com';
     const urlPath = '../src/const/photos.ts';
-    const json = getPhotosJSON(xmlPath);
+    const xml = await getPhotosXML({ url: urlPrefix, token: process.env.COS_TOKEN });
+    const json = getPhotosJSON(xml);
     const urlList = getPhotosURL({ urlPrefix, json });
     saveURL({ urlPath, urlList });
 }
