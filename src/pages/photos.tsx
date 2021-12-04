@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Tag, Space } from "@douyinfe/semi-ui";
 
 import Photo from "components/photo";
@@ -11,11 +12,15 @@ export default function PhotoPage() {
     <div className="photo-page">
       <div className="photo-list-top">
         <Space className="photo-total" align="start">
-          {COS_PHOTOS.length ? (
-            <Tag color="green">{`${COS_PHOTOS.length}张图片`}</Tag>
-          ) : null}
           {READING_BOOKS.length ? (
-            <Tag color="blue">{`${READING_BOOKS.length}本书`}</Tag>
+            <Link to="/">
+              <Tag color="blue">{`${READING_BOOKS.length}本书`}</Tag>
+            </Link>
+          ) : null}
+          {COS_PHOTOS.length ? (
+            <Link to="/photos">
+              <Tag color="green">{`${COS_PHOTOS.length}张图片`}</Tag>
+            </Link>
           ) : null}
         </Space>
       </div>

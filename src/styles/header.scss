@@ -1,8 +1,9 @@
 .header {
-    display: flex;
-    justify-content: center;
+    min-width: 1024px;
     height: 60px;
     line-height: 60px;
+    display: flex;
+    justify-content: space-between;
     background: #000;
     color: #fff;
     position: sticky;
@@ -15,23 +16,35 @@
         text-align: left;
         font-size: 16px;
         font-weight: 600;
+
+        @media screen and (max-width: 750px) {
+            padding-left: 16px;
+        }
     }
 
     .theme {
         flex: 1;
-        text-align: right;
+        display: flex;
+        justify-content: flex-end;
         padding-right: 30px;
+
+        @media screen and (max-width: 750px) {
+            justify-content: right;
+            padding-right: 16px;
+        }
     }
 
     .nav {
         display: flex;
         justify-content: center;
-        width: 935px;
+        max-width: 935px;
         font-size: 14px;
         font-weight: 600;
 
         div {
             width: 130px;
+            display: flex;
+            justify-content: center;
 
             &.disabled {
                 cursor: not-allowed;
@@ -40,8 +53,22 @@
         }
 
         a {
+            display: flex;
+            justify-content: center;
             text-decoration: none;
             color: #fff;
+        }
+
+        @media screen and (max-width: 750px) {
+            display: none;
+        }
+    }
+
+    .show-mobile-nav {
+        display: none;
+
+        @media screen and (max-width: 750px) {
+            display: inline-block;
         }
     }
 }

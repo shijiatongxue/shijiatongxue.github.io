@@ -1,8 +1,14 @@
 .photo-page {
-    width: 935px;
     min-width: 935px;
     box-sizing: border-box;
     margin-bottom: 16px;
+
+    @media screen and (max-width: 750px) {
+        width: 100%;
+        min-width: 100%;
+        padding: 0 4px;
+        margin-bottom: 4px;
+    }
 
     .photo-list-top {
         position: sticky;
@@ -15,7 +21,19 @@
 
     .photo-list {
         display: grid;
+        width: 100%;
         grid-gap: 32px;
         grid-template-columns: 1fr 1fr 1fr;
+
+        @media screen and (max-width: 750px) {
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 4px;
+
+            .photo {
+                flex: 1;
+                width: auto;
+                height: auto;
+            }
+        }
     }
 }

@@ -10,8 +10,8 @@ export default function Photo(props: { path: string, name: string }) {
             <img
                 src={props.path}
                 alt={props.name}
-                width={286}
-                height={286}
+                width="100%"
+                height="100%"
                 onClick={() => setPreview(true)}
             />
             <Preview path={props.path} name={props.name} visible={preview} onClose={() => setPreview(false)}></Preview>

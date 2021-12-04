@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, Modal } from '@douyinfe/semi-ui';
+import { Modal } from '@douyinfe/semi-ui';
 
 import '../styles/preview.scss';
 
 export default function Preview(props: { path: any, name: string, visible: boolean, onClose: (e: React.MouseEvent) => void }) {
     const modalStyle = {
-        width: 935,
+        width: 'calc(100% - 8px)',
+        maxWidth: 935,
     };
 
     return (

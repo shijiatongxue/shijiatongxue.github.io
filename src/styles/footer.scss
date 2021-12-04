@@ -1,18 +1,24 @@
 .footer {
-    display: flex;
-    flex-direction: row;
+    min-width: 1024px;
     height: 80px;
     line-height: 80px;
+    display: flex;
+    flex-direction: row;
     background: #000;
     color: #fff;
     position: sticky;
     bottom: 0;
     z-index: 999;
 
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
+
     .copyright {
         flex: 1;
         font-size: 14px;
         padding-left: 30px;
+        padding-right: 30px;
         text-align: center;
     }
 

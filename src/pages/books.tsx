@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Select, Space, Tag } from "@douyinfe/semi-ui";
 import BookCard from "../components/bookCard";
 import EmptyContent from "../components/emptyCotent";
@@ -36,9 +37,15 @@ function Books(props: any) {
     <div className="books-page">
       <div className="books-list-top">
         <Space className="books-total" align="start">
-          {list.length ? <Tag color="blue">{`${list.length}本书`}</Tag> : null}
+          {list.length ? (
+            <Link to="/">
+              <Tag color="blue">{`${list.length}本书`}</Tag>
+            </Link>
+          ) : null}
           {COS_PHOTOS.length ? (
-            <Tag color="green">{`${COS_PHOTOS.length}张图片`}</Tag>
+            <Link to="/photos">
+              <Tag color="green">{`${COS_PHOTOS.length}张图片`}</Tag>
+            </Link>
           ) : null}
         </Space>
         <Space className="books-filter">

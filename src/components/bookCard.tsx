@@ -15,7 +15,6 @@ function BookCard(props: BookCardProps) {
     <Card
       className="book-card-component"
       shadows='hover'
-      style={{ maxWidth: 340 }}
       bodyStyle={{ padding: 0, margin: 0 }}
       title={<Meta title={title} />}
       headerExtraContent={
