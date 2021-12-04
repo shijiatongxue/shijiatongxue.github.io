@@ -1,0 +1,20 @@
+name: build
+on: 
+  push:
+    branches:
+      - dev
+jobs:
+  build-website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
+          node-version: '14'
+      - run: git checkout dev
+      - run: npm install
+      - run: npm build
+      - run: 
+            git add .
+            git commit -m "update website"
+            git push -f
