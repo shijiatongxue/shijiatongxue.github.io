@@ -9,12 +9,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.PAT }}
+          ref: dev
+      - uses: actions/setup-node@v2
+        with:
           node-version: '14'
-      - run: git checkout dev
       - run: npm install
-      - run: npm build
-      - run: 
+      - run: npm run build
+      - name: push build
+        run: |
+            git config --global user.name 'github-actions'
+            git config --global user.email 'github-actions@github.com'
+            git branch
             git add .
             git commit -m "update website"
-            git push -f
+            git push

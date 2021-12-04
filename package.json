@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=development webpack serve",
     "build": "NODE_ENV=production webpack",
-    "postbuild": "cp docs/index.html docs/404.html"
+    "postbuild": "cp docs/index.html docs/404.html && cp CNAME docs/"
   },
   "dependencies": {
     "@douyinfe/semi-ui": "2.1.0",
