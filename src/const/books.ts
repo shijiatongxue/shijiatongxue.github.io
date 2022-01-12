@@ -8,6 +8,12 @@ export interface BookProps {
 
 const READING_BOOKS: BookProps[] = [
     {
+        title: '蒋经国传',
+        url: 'https://img9.doubanio.com/view/subject/s/public/s4483554.jpg',
+        star: 4,
+        date: '2022.01',
+    },
+    {
         title: '成为乔布斯',
         url: 'https://img9.doubanio.com/view/subject/s/public/s28948876.jpg',
         star: 4,
