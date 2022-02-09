@@ -8,6 +8,12 @@ export interface BookProps {
 
 const READING_BOOKS: BookProps[] = [
     {
+        title: '定投十年财务自由',
+        url: 'https://img9.doubanio.com/view/subject/l/public/s33819565.jpg',
+        star: 4,
+        date: '2022.02',
+    },
+    {
         title: '在细雨中呼喊',
         url: 'https://img2.doubanio.com/view/subject/s/public/s29032782.jpg',
         star: 3,
