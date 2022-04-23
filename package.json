@@ -12,7 +12,7 @@
     "postbuild": "cp docs/index.html docs/404.html && cp CNAME docs/"
   },
   "dependencies": {
-    "@douyinfe/semi-ui": "2.1.0",
+    "@douyinfe/semi-ui": "latest",
     "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -43,5 +43,9 @@
   "sideEffects": [
     "*.scss",
     "src/index.tsx"
-  ]
+  ],
+  "resolutions": {
+    "@types/react": "17.0.33",
+    "@types/react-router-dom/**/@types/react": "17.0.33"
+  }
 }
