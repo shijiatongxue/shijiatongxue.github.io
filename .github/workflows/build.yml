@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - dev
+  workflow_dispatch:
+
 jobs:
   build-website:
     runs-on: ubuntu-latest
