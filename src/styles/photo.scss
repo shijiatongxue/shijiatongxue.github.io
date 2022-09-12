@@ -4,4 +4,8 @@
     align-items: center;
     width: 286px;
     height: 286px;
+
+    img {
+        object-fit: cover;
+    }
 }
