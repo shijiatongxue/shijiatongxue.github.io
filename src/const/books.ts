@@ -8,6 +8,18 @@ export interface BookProps {
 
 const READING_BOOKS: BookProps[] = [
     {
+        title: '一句顶一万句',
+        url: 'https://img1.doubanio.com/view/subject/s/public/s6916838.jpg',
+        star: 4,
+        date: '2022.10',
+    },
+    {
+        title: '中国城市大趋势',
+        url: 'https://img2.doubanio.com/view/subject/s/public/s34088393.jpg',
+        star: 4,
+        date: '2022.05',
+    },
+    {
         title: '我本芬芳',
         url: 'https://img2.doubanio.com/view/subject/l/public/s34072342.jpg',
         star: 5,
