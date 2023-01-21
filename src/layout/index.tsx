@@ -10,7 +10,7 @@ export default function Layout() {
         <BrowserRouter>
             <Header />
             <Main />
-            <Footer />
+            {/* <Footer /> */}
         </BrowserRouter>
     );
 }

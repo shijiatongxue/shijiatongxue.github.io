@@ -8,6 +8,66 @@ export interface BookProps {
 
 const READING_BOOKS: BookProps[] = [
     {
+        title: '三国配角演义',
+        url: 'https://img9.doubanio.com/view/subject/l/public/s33521216.jpg',
+        star: 4,
+        date: '2023.01',
+    },
+    {
+        title: '两京十五日',
+        url: 'https://img2.doubanio.com/view/subject/l/public/s33682883.jpg',
+        star: 4,
+        date: '2022.10',
+    },
+    {
+        title: '毫无意义的工作',
+        url: 'https://img1.doubanio.com/view/subject/l/public/s34246527.jpg',
+        star: 2,
+        date: '2022.12',
+    },
+    {
+        title: '一句顶一万句',
+        url: 'https://img1.doubanio.com/view/subject/s/public/s6916838.jpg',
+        star: 4,
+        date: '2022.10',
+    },
+    {
+        title: '中国城市大趋势',
+        url: 'https://img2.doubanio.com/view/subject/s/public/s34088393.jpg',
+        star: 4,
+        date: '2022.05',
+    },
+    {
+        title: '我本芬芳',
+        url: 'https://img2.doubanio.com/view/subject/l/public/s34072342.jpg',
+        star: 5,
+        date: '2022.04',
+    },
+    {
+        title: '天下英雄谁敌手',
+        url: 'https://img2.doubanio.com/view/subject/l/public/s33871311.jpg',
+        star: 5,
+        date: '2022.04',
+    },
+    {
+        title: '置身事内',
+        url: 'https://img1.doubanio.com/view/subject/l/public/s33956867.jpg',
+        star: 5,
+        date: '2022.02',
+    },
+    {
+        title: '定投十年财务自由',
+        url: 'https://img9.doubanio.com/view/subject/l/public/s33819565.jpg',
+        star: 4,
+        date: '2022.02',
+    },
+    {
+        title: '在细雨中呼喊',
+        url: 'https://img2.doubanio.com/view/subject/s/public/s29032782.jpg',
+        star: 3,
+        date: '2022.01',
+    },
+    {
         title: '蒋经国传',
         url: 'https://img9.doubanio.com/view/subject/s/public/s4483554.jpg',
         star: 4,

@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - dev
+  workflow_dispatch:
+
 jobs:
   build-website:
     runs-on: ubuntu-latest
@@ -15,6 +17,8 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: npm run build
+        env:
+          COS_TOKEN: ${{ secrets.COS_TOKEN }}
       - name: push build
         run: |
             git config --global user.name 'github-actions'

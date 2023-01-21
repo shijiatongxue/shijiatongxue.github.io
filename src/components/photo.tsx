@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 
+import { Image } from '@douyinfe/semi-ui';
 import Preview from './preview';
 import '../styles/photo.scss';
 
 export default function Photo(props: { path: string, name: string }) {
-    const [preview, setPreview] = useState(false);
     return (
         <div className="photo">
-            <img
+            <Image
                 src={props.path}
                 alt={props.name}
                 width="100%"
                 height="100%"
-                onClick={() => setPreview(true)}
             />
-            <Preview path={props.path} name={props.name} visible={preview} onClose={() => setPreview(false)}></Preview>
         </div>
     );
 }

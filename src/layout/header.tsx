@@ -21,6 +21,7 @@ export default function Header() {
 
   const switchMode = () => {
     const body = document.body;
+    console.log('set mode');
     if (body.hasAttribute("theme-mode")) {
       body.removeAttribute("theme-mode");
       setMode("light");
@@ -61,8 +62,6 @@ export default function Header() {
     themeMode && setMode(themeMode);
     if (themeMode === "dark") {
       document.body.setAttribute("theme-mode", "dark");
-    } else {
-      document.body.setAttribute("theme-mode", "light");
     }
   }, []);
 
