@@ -1,8 +1,8 @@
 name: build
-on: 
+on:
   push:
     branches:
-      - dev
+      - master
   workflow_dispatch:
 
 jobs:
@@ -21,9 +21,9 @@ jobs:
           COS_TOKEN: ${{ secrets.COS_TOKEN }}
       - name: push build
         run: |
-            git config --global user.name 'github-actions'
-            git config --global user.email 'github-actions@github.com'
-            git branch
-            git add .
-            git commit -m "update website"
-            git push
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git branch
+          git add .
+          git commit -m "update website"
+          git push
