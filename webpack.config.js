@@ -59,7 +59,7 @@ module.exports = {
                     'style-loader',
                     'css-loader',
                 ],
-                include: resolve('node_modules/@douyinfe')
+                // include: resolve('node_modules/@douyinfe')
             },
             {
                 test: /\.(gif|png|jpeg|jpg)$/i,

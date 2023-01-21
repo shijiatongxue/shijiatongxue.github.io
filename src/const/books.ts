@@ -8,6 +8,24 @@ export interface BookProps {
 
 const READING_BOOKS: BookProps[] = [
     {
+        title: '三国配角演义',
+        url: 'https://img9.doubanio.com/view/subject/l/public/s33521216.jpg',
+        star: 4,
+        date: '2023.01',
+    },
+    {
+        title: '两京十五日',
+        url: 'https://img2.doubanio.com/view/subject/l/public/s33682883.jpg',
+        star: 4,
+        date: '2022.10',
+    },
+    {
+        title: '毫无意义的工作',
+        url: 'https://img1.doubanio.com/view/subject/l/public/s34246527.jpg',
+        star: 2,
+        date: '2022.12',
+    },
+    {
         title: '一句顶一万句',
         url: 'https://img1.doubanio.com/view/subject/s/public/s6916838.jpg',
         star: 4,
