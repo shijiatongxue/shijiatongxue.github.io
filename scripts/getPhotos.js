@@ -61,7 +61,7 @@ async function main() {
         const urlList = getPhotosURL({ urlPrefix, json });
         saveURL({ urlPath, urlList });
     } catch (err) {
-        console.error(err);
+        console.error(err.message);
     }
 }
 
