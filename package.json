@@ -5,13 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/getPhotos.js",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "postbuild": "cp docs/index.html docs/404.html && cp CNAME docs/",
+    "lint": "eslint src --ext ts,tsx --fix",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@douyinfe/semi-icons": "^2.28.0",
+    "@douyinfe/semi-illustrations": "^2.28.0",
+    "@douyinfe/semi-ui": "^2.28.0",
+    "axios": "^0.24.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
@@ -22,7 +29,10 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "lodash-es": "^4.17.21",
+    "sass": "^1.62.1",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "xml2js": "^0.6.0"
   }
 }

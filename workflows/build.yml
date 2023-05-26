@@ -1,0 +1,29 @@
+name: build
+on: 
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build-website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: dev
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm run build
+        env:
+          COS_TOKEN: ${{ secrets.COS_TOKEN }}
+      - name: push build
+        run: |
+            git config --global user.name 'github-actions'
+            git config --global user.email 'github-actions@github.com'
+            git branch
+            git add .
+            git commit -m "update website"
+            git push
