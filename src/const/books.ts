@@ -8,6 +8,12 @@ export interface BookProps {
 
 const READING_BOOKS: BookProps[] = [
     {
+        title: '告别百年激进',
+        url: 'https://img1.doubanio.com/view/subject/l/public/s33584247.jpg',
+        star: 4,
+        date: '2023.02',
+    },
+    {
         title: '三国配角演义',
         url: 'https://img9.doubanio.com/view/subject/l/public/s33521216.jpg',
         star: 4,
