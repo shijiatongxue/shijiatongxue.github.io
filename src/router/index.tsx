@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { MENUS } from '../const/menus';
+import NoMatch from '../pages/noMatch';
 
 export default function Router() {
     return (
@@ -10,6 +11,8 @@ export default function Router() {
                     </Route>
                 ))
             }
+            <Route key="404" path="*" element={<NoMatch />}>
+            </Route>
         </Routes>
     );
 }
