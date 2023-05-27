@@ -14,17 +14,17 @@ const MENUS = [
         component: Pages.Home
     },
     {
-        path: '/blogs',
-        text: 'Blogs',
-        disabled: true,
-        component: Pages.Blogs
+        path: '/projects',
+        text: 'Projects',
+        disabled: false,
+        component: Pages.Projects
     },
-    {
-        path: '/about',
-        text: 'About',
-        disabled: true,
-        component: Pages.About
-    }
+    // {
+    //     path: '/about',
+    //     text: 'About',
+    //     disabled: true,
+    //     component: Pages.About
+    // }
 ];
 
 export {
