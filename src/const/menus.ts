@@ -19,6 +19,12 @@ const MENUS = [
         disabled: false,
         component: Pages.Projects
     },
+    {
+        path: '/blogs',
+        text: 'Blogs',
+        disabled: false,
+        component: Pages.Blogs
+    },
     // {
     //     path: '/about',
     //     text: 'About',

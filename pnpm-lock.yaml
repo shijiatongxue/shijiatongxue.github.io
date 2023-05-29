@@ -30,6 +30,7 @@ dependencies:
   '@douyinfe/semi-icons': 2.36.0_react@18.2.0
   '@douyinfe/semi-illustrations': 2.36.0_react@18.2.0
   '@douyinfe/semi-ui': 2.36.0_biqbaboplfbrettd7655fr4n2y
+  lodash-es: 4.17.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.11.2_biqbaboplfbrettd7655fr4n2y
@@ -46,7 +47,6 @@ devDependencies:
   eslint: 8.41.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.41.0
   eslint-plugin-react-refresh: 0.3.5_eslint@8.41.0
-  lodash-es: 4.17.21
   postcss: 8.4.23
   sass: 1.62.1
   tailwindcss: 3.3.2
@@ -1684,7 +1684,7 @@ packages:
 
   /lodash-es/4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: true
+    dev: false
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
