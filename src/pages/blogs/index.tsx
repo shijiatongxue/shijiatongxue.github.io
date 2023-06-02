@@ -9,7 +9,7 @@ import {
 export default function Blogs() {
   const { loading, blogList } = useBlogList();
   return (
-    <div className="pt-[64px] box-border w-full max-w-[935px] flex flex-col items-center">
+    <div className="sm:pt-[64px] box-border w-full max-w-[935px] flex flex-col items-center">
       {loading && <Spin />}
       {blogList.map((item) => (
         <BlogCard {...item} key={item.id} />
