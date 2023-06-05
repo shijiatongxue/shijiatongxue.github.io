@@ -20,10 +20,12 @@ function formatData(rawData: Record<string, any>): Blog {
     "https://www.notion.so",
     "https://shijia.notion.site"
   );
+  const externalUrl = get(cover, "external.url");
+  const fileUrl = get(cover, "file.url");
   const result: Blog = {
     id,
     title: get(properties, "title.title.0.plain_text"),
-    coverUrl: get(cover, "external.url"),
+    coverUrl: externalUrl || fileUrl,
     description: get(paragraph, "paragraph.rich_text[0].plain_text"),
     createTime: new Date(created_time),
     url: siteUrl,

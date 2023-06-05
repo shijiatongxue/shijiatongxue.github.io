@@ -13,14 +13,14 @@ const BlogCard = (props: Blog) => {
       className="box-border w-full py-[12px] px-[12px] sm:py-[24px] sm:px-[30px] sm:h-[260px] flex items-center justify-between gap-[20px] border-b border-solid border-[var(--semi-color-border)] rounded-[20px] bg-[var(--semi-bg-0)] cursor-pointer"
     >
       <div className="flex shrink flex-col items-start gap-y-[4px] sm:gap-y-[30px] grow overflow-hidden">
-        <p className="shrink min-w-[107px] text-[13px] text-[#667085ff] leading-[16px] align-top font-[500]">
+        <p className="shrink min-w-[107px] text-[13px] text-[--semi-color-text-1] leading-[16px] align-top font-[500]">
           {createTime.toLocaleDateString()}
         </p>
         <div className="shrink items-start gap-y-[10px] overflow-hidden w-full">
-          <p className="box-border truncate text-[26px] text-[#1d2939ff] leading-[34px] text-left align-top font-[600]">
+          <p className="box-border truncate text-[26px] text-[--semi-color-text-0] leading-[34px] text-left align-top font-[600]">
             {title}
           </p>
-          <p className="box-border line-clamp-2 text-ellipsis text-[18px] text-[#475467ff] leading-[27px] text-left align-top font-[400]">
+          <p className="box-border line-clamp-2 text-ellipsis text-[18px] text-[--semi-color-text-2] leading-[27px] text-left align-top font-[400]">
             {description}
           </p>
         </div>
