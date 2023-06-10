@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, Rating, Typography } from "@douyinfe/semi-ui";
+import { Card, Rating, Space, Typography } from "@douyinfe/semi-ui";
 import { BookProps } from "../const/books";
-import  '../styles/components.scss';
+import "../styles/components.scss";
 
 interface BookCardProps extends BookProps {
   style?: React.CSSProperties;
@@ -10,11 +10,11 @@ interface BookCardProps extends BookProps {
 const { Meta } = Card;
 
 function BookCard(props: BookCardProps) {
-  const { title, url, star = 3, date } = props;
+  const { title, url, star = 3, date, comment } = props;
   return (
     <Card
       className="book-card-component"
-      shadows='hover'
+      shadows="hover"
       bodyStyle={{ padding: 0, margin: 0 }}
       title={<Meta title={title} />}
       headerExtraContent={
@@ -34,12 +34,22 @@ function BookCard(props: BookCardProps) {
           <img
             alt={title}
             src={url}
+            loading="lazy"
             style={{ maxHeight: 250, width: "auto" }}
           />
         </div>
       }
       footerLine={true}
-      footer={<Rating size="small" defaultValue={star} />}
+      footer={
+        <Space vertical align="start" style={{ width: '100%' }}>
+          <Rating size="small" allowHalf defaultValue={star} disabled />
+          {comment && (
+            <Typography.Text ellipsis={{ showTooltip: true }}>
+              {comment}
+            </Typography.Text>
+          )}
+        </Space>
+      }
     />
   );
 }
