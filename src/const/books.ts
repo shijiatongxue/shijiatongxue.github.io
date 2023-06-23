@@ -8,6 +8,12 @@ export interface BookProps {
 
 const READING_BOOKS: BookProps[] = [
   {
+    title: "她厌男，她是我女友",
+    url: "https://img1.doubanio.com/view/subject/s/public/s34527419.jpg",
+    star: 4,
+    date: "2023.06",
+  },
+  {
     title: "完美主义扼杀效率",
     url: "https://img2.doubanio.com/view/subject/l/public/s34153013.jpg",
     star: 4,
