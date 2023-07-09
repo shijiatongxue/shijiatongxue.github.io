@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Button, Space, SideSheet, Typography } from "@douyinfe/semi-ui";
 import {
@@ -18,6 +18,7 @@ export default function Header() {
   const isDarkMode = document.body.hasAttribute("theme-mode");
   const [mode, setMode] = useState(isDarkMode ? "dark" : "light");
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   const switchMode = () => {
     const body = document.body;
@@ -57,6 +58,10 @@ export default function Header() {
     size: "large" as const,
   };
 
+  const handleGoHome = () => {
+    navigate("/");
+  };
+
   useEffect(() => {
     const themeMode = window.localStorage.getItem("theme-mode");
     themeMode && setMode(themeMode);
@@ -67,7 +72,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <div className="logo">石嘉同学</div>
+      <div className="logo" onClick={handleGoHome}>石嘉同学</div>
       <div className="nav">
         {MENUS.map((menu, index) =>
           menu.disabled ? (

@@ -1,29 +1,29 @@
 import * as Pages from '../pages';
 
 const MENUS = [
+    // {
+    //     path: '/',
+    //     text: 'Books',
+    //     disabled: false,
+    //     component: Pages.Books
+    // },
+    // {
+    //     path: '/photos',
+    //     text: 'Photos',
+    //     disabled: false,
+    //     component: Pages.Home
+    // },
     {
         path: '/',
-        text: 'Books',
+        text: 'Blogs',
         disabled: false,
-        component: Pages.Books
-    },
-    {
-        path: '/photos',
-        text: 'Photos',
-        disabled: false,
-        component: Pages.Home
+        component: Pages.Blogs
     },
     {
         path: '/projects',
         text: 'Projects',
         disabled: false,
         component: Pages.Projects
-    },
-    {
-        path: '/blogs',
-        text: 'Blogs',
-        disabled: false,
-        component: Pages.Blogs
     },
     // {
     //     path: '/about',
