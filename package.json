@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "postbuild": "cp docs/index.html docs/404.html && cp CNAME docs/",
+    "uploadStatic": "node ./scripts/uploadStatic.js",
     "lint": "eslint src --ext ts,tsx --fix",
     "preview": "vite preview"
   },
