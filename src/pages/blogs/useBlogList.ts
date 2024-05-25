@@ -38,7 +38,7 @@ function formatData(rawData: Record<string, any>): Blog {
 let list: Blog[] = [
   {
     title: 'Semi D2C 设计稿转代码的演进之路',
-    description: '介绍 Semi D2C 的能力边界、探索历程、底层实现原理',
+    description: '介绍 Semi D2C 的能力边界、探索历程、实现原理',
     coverUrl: 'https://site-1307850796.cos.ap-beijing.myqcloud.com/design-2-code.jpg',
     createTime: new Date('2023/08/15'),
     url: 'https://mp.weixin.qq.com/s/AvqMqjQbP_whT5NBttFIGA',
