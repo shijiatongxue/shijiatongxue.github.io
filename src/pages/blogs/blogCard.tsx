@@ -15,7 +15,7 @@ const BlogCard = (props: Blog) => {
       <div className="flex shrink flex-col items-start gap-y-[4px] sm:gap-y-[12px] grow overflow-hidden">
         <p className="flex shrink gap-x-2 min-w-[107px] text-[13px] text-[--semi-color-text-1] leading-[16px] align-top font-[500]">
           {`${createTime.toLocaleDateString()}`}
-          {updateTime !== createTime && (
+          {updateTime && updateTime !== createTime && (
             <div title={`编辑于 ${updateTime.toLocaleDateString()}`} className="text-[--semi-color-text-3]">
               已编辑
             </div>
