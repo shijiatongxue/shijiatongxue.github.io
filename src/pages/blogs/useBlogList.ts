@@ -46,7 +46,7 @@ let list: Blog[] = [
   {
     title: 'Semi Design 如何做质量保障',
     description: '综合运用 Unit Test、E2E Test、Visual Test 保障组件库稳定性',
-    coverUrl: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*5BAW6KHTo0_s2nj73lDRzg.png',
+    coverUrl: 'https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/test.jpg',
     createTime: new Date('2022/08/02'),
     url: 'https://medium.com/front-end-weekly/how-we-test-semi-design-component-libraries-64b854f63b65',
   }
