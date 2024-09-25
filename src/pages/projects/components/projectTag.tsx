@@ -1,9 +1,12 @@
 const tagColorMap = {
-  React: "#38bdf8ff",
-  Figma: "#F43F5E",
-  D2C: "#111827ff",
-  "Design to code": "#111827ff",
-  "UI components": "#bada55",
+  React: 'rgb(8, 126, 164)',
+  'React UI components': 'rgb(8, 126, 164)',
+  Figma: '#F43F5E',
+  'Figma Plugin': '#F43F5E',
+  'npm package': 'rgba(0, 0, 0, 0.7)',
+  D2C: '#111827ff',
+  'Design to code': '#111827ff',
+  'UI components': 'rgba(var(--semi-blue-5), 1)',
 };
 
 export default function ProjectTag(props: { name: string }) {

@@ -1,15 +1,13 @@
-import { Empty, Spin } from "@douyinfe/semi-ui";
-import BlogCard from "./blogCard";
-import useBlogList from "./useBlogList";
-import {
-  IllustrationConstruction,
-  IllustrationConstructionDark,
-} from "@douyinfe/semi-illustrations";
+import { Empty, Spin } from '@douyinfe/semi-ui';
+import { IllustrationConstruction, IllustrationConstructionDark } from '@douyinfe/semi-illustrations';
+
+import BlogCard from './blogCard';
+import useBlogList from './useBlogList';
 
 export default function Blogs() {
   const { loading, blogList } = useBlogList();
   return (
-    <div className="sm:pt-[64px] box-border w-full max-w-[935px] flex flex-col items-center">
+    <div className="box-border max-w-[935px] flex flex-col items-center">
       {loading && <Spin />}
       {blogList.map((item) => (
         <BlogCard {...item} key={item.id} />
