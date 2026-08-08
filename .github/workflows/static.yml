@@ -7,6 +7,18 @@ on:
     branches: ['master']
     paths:
       - 'src/**'
+      - 'public/**'
+      - 'static/**'
+      - 'assets/**'
+      - 'scripts/**'
+      - 'index.html'
+      - 'CNAME'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'vite.config.*'
+      - 'postcss.config.*'
+      - 'tailwind.config.*'
+      - 'tsconfig*.json'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
