@@ -1,36 +1,49 @@
-import { Image } from '@douyinfe/semi-ui';
+import type { MouseEvent as ReactMouseEvent } from 'react';
 
+import { useLanguage } from '../../common/i18n';
 import { Blog } from './useBlogList';
 
 const BlogCard = (props: Blog) => {
-  const { createTime, coverUrl, title, url, description, updateTime } = props;
+  const { language, t } = useLanguage();
+  const { createTime, coverUrl, title, titleEn, url, description, descriptionEn, updateTime } = props;
+  const displayTitle = language === 'en' ? titleEn || title : title;
+  const displayDescription = language === 'en' ? descriptionEn || description : description;
 
-  const handleGoBlog = () => {
-    window.open(url);
+  const handleMouseMove = (event: ReactMouseEvent<HTMLElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty('--card-x', `${event.clientX - rect.left}px`);
+    event.currentTarget.style.setProperty('--card-y', `${event.clientY - rect.top}px`);
+  };
+
+  const handleMouseLeave = (event: ReactMouseEvent<HTMLElement>) => {
+    event.currentTarget.style.removeProperty('--card-x');
+    event.currentTarget.style.removeProperty('--card-y');
   };
 
   return (
-    <div className="box-border w-full py-[12px] sm:py-[24px] sm:px-[30px] sm:h-[260px] flex items-center justify-between gap-[20px] border-b border-solid border-[var(--semi-color-border)] bg-[var(--semi-bg-0)] cursor-pointer">
-      <div className="flex shrink flex-col items-start gap-y-[4px] sm:gap-y-[12px] grow overflow-hidden">
-        <p className="flex shrink gap-x-2 min-w-[107px] text-[13px] text-[--semi-color-text-1] leading-[16px] align-top font-[500]">
-          {`${createTime.toLocaleDateString()}`}
-          {updateTime && updateTime !== createTime && (
-            <div title={`编辑于 ${updateTime.toLocaleDateString()}`} className="text-[--semi-color-text-3]">
-              已编辑
-            </div>
-          )}
-        </p>
-        <div className="flex flex-col shrink items-start gap-y-[8px] overflow-hidden w-full" onClick={handleGoBlog}>
-          <p className="box-border truncate text-2xl xl:text-3xl text-[--semi-color-text-0] leading-[34px] text-left align-top font-[600]">
-            {title}
-          </p>
-          <p className="box-border line-clamp-2 text-ellipsis text-[18px] text-[--semi-color-text-2] leading-[27px] text-left align-top font-[400]">
-            {description}
-          </p>
+    <article className="blog-card" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+      <a className="blog-card-link" href={url} target="_blank" rel="noreferrer">
+        <div className="blog-card-copy">
+          <div className="blog-card-meta">
+            <span>{createTime.toLocaleDateString(language === 'zh' ? 'zh-CN' : 'en-US')}</span>
+            {updateTime && updateTime.getTime() !== createTime.getTime() && (
+              <span title={`${t('blog.edited')} ${updateTime.toLocaleDateString(language === 'zh' ? 'zh-CN' : 'en-US')}`}>
+                {t('blog.edited')}
+              </span>
+            )}
+            <span className="blog-card-type">{t('blog.article')}</span>
+          </div>
+          <h3>{displayTitle}</h3>
+          <p>{displayDescription}</p>
+          <span className="read-more">{t('blog.read')} <span aria-hidden="true">↗</span></span>
         </div>
-      </div>
-      <Image className="box-border w-[350px] rounded-[10px] hidden	sm:inline-block" width="350" src={coverUrl} />
-    </div>
+        {coverUrl && (
+          <div className="blog-card-cover">
+            <img src={coverUrl} alt="" loading="lazy" />
+          </div>
+        )}
+      </a>
+    </article>
   );
 };
 

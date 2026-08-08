@@ -5,7 +5,9 @@ import { get } from "lodash-es";
 export interface Blog {
   url: string;
   title: string;
+  titleEn?: string;
   description: string;
+  descriptionEn?: string;
   createTime: Date;
   id?: string;
   updateTime?: Date;
@@ -38,14 +40,18 @@ function formatData(rawData: Record<string, any>): Blog {
 let list: Blog[] = [
   {
     title: 'Semi D2C 设计稿转代码的演进之路',
+    titleEn: 'The evolution of Semi D2C: from design to code',
     description: '介绍 Semi D2C 的能力边界、探索历程、实现原理',
+    descriptionEn: 'The capabilities, evolution, and implementation behind Semi D2C.',
     coverUrl: 'https://site-1307850796.cos.ap-beijing.myqcloud.com/design-2-code.jpg',
     createTime: new Date('2023/08/15'),
     url: 'https://mp.weixin.qq.com/s/AvqMqjQbP_whT5NBttFIGA',
   },
   {
     title: 'Semi Design 如何做质量保障',
+    titleEn: 'How we ensure quality at Semi Design',
     description: '综合运用 Unit Test、E2E Test、Visual Test 保障组件库稳定性',
+    descriptionEn: 'Using unit, E2E, and visual tests to keep a component library stable.',
     coverUrl: 'https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/test.jpg',
     createTime: new Date('2022/08/02'),
     url: 'https://medium.com/front-end-weekly/how-we-test-semi-design-component-libraries-64b854f63b65',

@@ -1,12 +1,21 @@
 import React from 'react';
 
+import { useLanguage } from '../common/i18n';
 import '../styles/footer.scss';
 
 export default function Footer() {
-    return (
-        <footer className="footer">
-            <div className="copyright" style={{ textAlign: 'left' }}>Copyright Shi Jia {new Date().getFullYear()}</div>
-            <div className="copyright"  style={{ textAlign: 'right' }}>Powered by <a href="https://semi.design" target="_blank">Semi Design</a></div>
-        </footer>
-    );
+  const { t } = useLanguage();
+
+  return (
+    <footer className="footer">
+      <div className="footer-inner">
+        <span>© Shi Jia {new Date().getFullYear()}</span>
+        <span className="footer-powered">Powered by Codex</span>
+        <span className="footer-note">{t('footer.note')}</span>
+        <a href="https://github.com/shijiatongxue" target="_blank" rel="noreferrer">
+          {t('footer.github')} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </footer>
+  );
 }
