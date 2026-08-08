@@ -49,11 +49,19 @@
   box-shadow: 0 0 0 5px color-mix(in srgb, var(--site-accent) 16%, transparent);
 }
 
+.hero-copy {
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .hero-title {
   max-width: 780px;
+  min-height: calc(1.9 * clamp(52px, 7vw, 104px));
   margin: 30px 0 28px;
   color: var(--site-ink);
-  font-size: clamp(52px, 7vw, 104px);
+  font-size: clamp(52px, 6.2vw, 92px);
   font-weight: 720;
   letter-spacing: -0.085em;
   line-height: 0.95;
@@ -61,11 +69,12 @@
 
 .hero-title span {
   display: block;
-  margin-left: clamp(20px, 5vw, 68px);
+  margin-left: clamp(20px, 3vw, 44px);
   color: var(--site-accent);
 }
 
 .home-page--en .hero-title {
+  font-size: clamp(52px, 5.2vw, 76px);
   letter-spacing: -0.04em;
 }
 
@@ -76,6 +85,7 @@
 
 .hero-lede {
   max-width: 530px;
+  min-height: calc(3 * 1.85em);
   margin: 0;
   color: var(--site-muted);
   font-size: 17px;
@@ -154,6 +164,7 @@
 }
 
 .hero-meta span {
+  min-height: 1.35em;
   color: var(--site-faint);
   font-size: 11px;
   font-weight: 650;
@@ -366,13 +377,20 @@
 .marquee-track {
   width: max-content;
   display: flex;
+  animation: marquee-scroll 48s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group {
+  display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 28px;
-  padding: 18px 0;
-  animation: marquee-scroll 26s linear infinite;
+  gap: clamp(28px, 4vw, 58px);
+  padding: 18px clamp(28px, 4vw, 64px);
   font-size: 11px;
   font-weight: 750;
   letter-spacing: 0.18em;
+  white-space: nowrap;
 }
 
 .marquee-track i {
@@ -383,7 +401,7 @@
 
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-32%); }
+  to { transform: translateX(-50%); }
 }
 
 .content-section {
@@ -414,6 +432,14 @@
 .page-intro h1 em {
   color: var(--site-accent);
   font-style: normal;
+}
+
+.section-description {
+  max-width: 520px;
+  margin: 22px 0 0;
+  color: var(--site-muted);
+  font-size: 15px;
+  line-height: 1.75;
 }
 
 .section-link {
@@ -835,6 +861,14 @@
     gap: 40px;
   }
 
+  .hero-title {
+    font-size: clamp(52px, 7vw, 104px);
+  }
+
+  .home-page--en .hero-title {
+    font-size: clamp(48px, 6vw, 92px);
+  }
+
   .hero-art {
     min-height: 480px;
   }
@@ -860,7 +894,12 @@
 
   .hero-title {
     margin-top: 24px;
+    min-height: calc(1.9 * clamp(50px, 14vw, 76px));
     font-size: clamp(50px, 14vw, 76px);
+  }
+
+  .home-page--en .hero-title {
+    font-size: clamp(44px, 12vw, 72px);
   }
 
   .hero-title span {
@@ -868,11 +907,16 @@
   }
 
   .hero-lede {
+    min-height: calc(3 * 1.85em);
     font-size: 15px;
   }
 
   .hero-meta {
     margin-top: 42px;
+  }
+
+  .hero-meta span {
+    min-height: 2.4em;
   }
 
   .hero-art {

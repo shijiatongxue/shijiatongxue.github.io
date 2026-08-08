@@ -1,4 +1,4 @@
-import type { MouseEvent as ReactMouseEvent } from 'react';
+import { Fragment, type MouseEvent as ReactMouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useLanguage } from '../common/i18n';
@@ -53,6 +53,15 @@ export default function HomePage() {
   const { language, t } = useLanguage();
   const cardNote = t('home.hero.card.note').split('\n');
   const curiosityNote = t('home.hero.curiosity').split('\n');
+  const marqueeRepeats = Array.from({ length: 3 }, (_, index) => index);
+  const marqueeItems = [
+    'home.marquee.one',
+    'home.marquee.two',
+    'home.marquee.three',
+    'home.marquee.four',
+    'home.marquee.five',
+    'home.marquee.six',
+  ];
 
   return (
     <div className={`home-page home-page--${language}`}>
@@ -126,7 +135,30 @@ export default function HomePage() {
 
       <div className="marquee" aria-label={t('home.marquee.aria')}>
         <div className="marquee-track">
-          <span>{t('home.marquee.one')}</span><i>✳</i><span>{t('home.marquee.two')}</span><i>✳</i><span>{t('home.marquee.three')}</span><i>✳</i><span>{t('home.marquee.one')}</span><i>✳</i><span>{t('home.marquee.two')}</span>
+          <div className="marquee-group">
+            {marqueeRepeats.map((repeatIndex) => (
+              <Fragment key={`marquee-a-${repeatIndex}`}>
+                {marqueeItems.map((itemKey, itemIndex) => (
+                  <Fragment key={`${itemKey}-${repeatIndex}`}>
+                    <span>{t(itemKey)}</span>
+                    {itemIndex < marqueeItems.length - 1 && <i aria-hidden="true">✳</i>}
+                  </Fragment>
+                ))}
+              </Fragment>
+            ))}
+          </div>
+          <div className="marquee-group" aria-hidden="true">
+            {marqueeRepeats.map((repeatIndex) => (
+              <Fragment key={`marquee-b-${repeatIndex}`}>
+                {marqueeItems.map((itemKey, itemIndex) => (
+                  <Fragment key={`${itemKey}-${repeatIndex}`}>
+                    <span>{t(itemKey)}</span>
+                    {itemIndex < marqueeItems.length - 1 && <i aria-hidden="true">✳</i>}
+                  </Fragment>
+                ))}
+              </Fragment>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -148,6 +180,7 @@ export default function HomePage() {
           <div>
             <p className="section-kicker">{t('home.work.kicker')}</p>
             <h2>{t('home.work.title.first')}<br /><em>{t('home.work.title.second')}</em></h2>
+            <p className="section-description">{t('home.work.description')}</p>
           </div>
           <Link className="section-link" to="/projects">
             {t('home.work.all')} <span aria-hidden="true">↗</span>

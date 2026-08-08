@@ -15,11 +15,11 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'header.github': '打开 GitHub',
     'header.menu': '打开菜单',
     'header.language': '切换到英文',
-    'header.role': 'AI 全栈',
-    'home.eyebrow': 'AI 全栈 · 北京',
+    'header.role': '前端 → AI',
+    'home.eyebrow': '前端 → AI',
     'home.title.first': '把想法做成',
     'home.title.second': '好用的产品。',
-    'home.lede': '我从前端开发走向 AI 全栈开发，喜欢把复杂的问题拆开，再做成简单、好用的产品。这里记录我的项目、思考，以及一路上保持好奇的尝试。',
+    'home.lede': '从前端开发到 AI 全栈开发，我专注把复杂问题做成清晰、好用的产品。这里记录我的项目、思考和尝试。',
     'home.projects': '看看我的项目',
     'home.blogs': '阅读文章',
     'home.stats.projects': '精选项目',
@@ -38,6 +38,9 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'home.marquee.one': 'AI 产品构建',
     'home.marquee.two': '全栈实践',
     'home.marquee.three': '产品思维',
+    'home.marquee.four': '用户体验',
+    'home.marquee.five': '真实问题',
+    'home.marquee.six': '持续好奇',
     'home.writings.kicker': '01 / 文章',
     'home.writings.title.first': '把过程写下来，',
     'home.writings.title.second': '让经验可以被分享。',
@@ -45,6 +48,7 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'home.work.kicker': '02 / 精选项目',
     'home.work.title.first': '一些真正被',
     'home.work.title.second': '做出来的东西。',
+    'home.work.description': '从真实问题出发，兼顾产品思维与用户体验。',
     'home.work.all': '浏览全部项目',
     'blogs.kicker': '01 / 文章',
     'blogs.title.first': '写下正在',
@@ -76,11 +80,11 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'header.github': 'Open GitHub',
     'header.menu': 'Open menu',
     'header.language': 'Switch to Chinese',
-    'header.role': 'AI full-stack',
-    'home.eyebrow': 'AI full-stack · Beijing',
+    'header.role': 'Frontend → AI',
+    'home.eyebrow': 'Frontend → AI',
     'home.title.first': 'Turn ideas into',
     'home.title.second': 'useful products.',
-    'home.lede': 'I started in frontend development and now build full-stack AI products. I like breaking complex problems down into simple, useful experiences. This is where I share my projects, thoughts, and experiments that keep me curious.',
+    'home.lede': 'From frontend to full-stack AI, I turn complex problems into clear, useful products. Here I share my projects, thoughts, and experiments.',
     'home.projects': 'See my projects',
     'home.blogs': 'Read articles',
     'home.stats.projects': 'Selected projects',
@@ -99,6 +103,9 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'home.marquee.one': 'AI PRODUCT BUILDING',
     'home.marquee.two': 'FULL-STACK CRAFT',
     'home.marquee.three': 'PRODUCT THINKING',
+    'home.marquee.four': 'USER EXPERIENCE',
+    'home.marquee.five': 'REAL PROBLEMS',
+    'home.marquee.six': 'STAY CURIOUS',
     'home.writings.kicker': '01 / WRITINGS',
     'home.writings.title.first': 'Write it down,',
     'home.writings.title.second': 'so experience can travel.',
@@ -106,6 +113,7 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     'home.work.kicker': '02 / SELECTED WORK',
     'home.work.title.first': 'A few things I',
     'home.work.title.second': 'actually built.',
+    'home.work.description': 'Built from real problems, shaped by product thinking and user experience.',
     'home.work.all': 'Browse all projects',
     'blogs.kicker': '01 / WRITINGS',
     'blogs.title.first': 'Writing down',
@@ -155,7 +163,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
-    document.title = language === 'zh' ? 'Shi Jia — AI 全栈' : 'Shi Jia — AI Full-stack';
+    document.title = language === 'zh' ? 'Shi Jia — 前端到 AI' : 'Shi Jia — Frontend to AI';
   }, [language]);
 
   const value: LanguageContextValue = {
