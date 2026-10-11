@@ -807,6 +807,21 @@
   border-top: 1px solid var(--site-line);
 }
 
+.project-description {
+  min-height: 4.8em;
+  margin: 14px 0 0;
+  color: var(--site-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.project-status {
+  margin: 8px 0 0;
+  color: var(--site-faint);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
 .project-card-links a {
   color: var(--site-muted);
   font-size: 11px;

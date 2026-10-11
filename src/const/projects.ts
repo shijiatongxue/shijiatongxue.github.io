@@ -1,6 +1,16 @@
 import { ProjectProps } from '../pages/projects/components/project';
+import tripickIconUrl from '../assets/tripick-icon.png';
 
 const PROJECTS: ProjectProps[] = [
+  {
+    name: 'Tripick',
+    tags: ['iOS App', 'SwiftUI', 'Photos + Vision'],
+    displayImageUrl: tripickIconUrl,
+    displayImageBgColor: '#F5F1E8',
+    relatedUrl: 'https://apps.apple.com/us/app/tripick/id6817152211',
+    descriptionKey: 'project.tripick.description',
+    relatedLabelKey: 'project.tripick.store',
+  },
   {
     name: 'Semi Design',
     tags: ['React UI components'],

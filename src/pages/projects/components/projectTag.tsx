@@ -9,6 +9,9 @@ const tagColorMap: Record<string, string> = {
   D2C: '#111827',
   'Design to code': '#111827',
   'UI components': 'rgba(20, 112, 195, 1)',
+  'iOS App': '#263C4A',
+  SwiftUI: '#B84D2E',
+  'Photos + Vision': '#596B4F',
 };
 
 const tagLabelMap: Record<string, string> = {

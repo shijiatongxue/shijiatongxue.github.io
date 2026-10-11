@@ -9,15 +9,18 @@ export interface ProjectProps {
   tags: string[];
   displayImageUrl: string;
   displayImageBgColor?: ProjectImageProps['bgColor'] | string;
-  relatedUrl: string;
+  relatedUrl?: string;
   githubUrl?: string;
+  descriptionKey?: string;
+  relatedLabelKey?: string;
 }
 
 const PROJECTS_INDEX: Record<string, number> = {
-  'Semi Design': 1,
-  '设计稿转代码': 2,
-  'Quick Replace Font': 3,
-  'create-figma-app': 4,
+  Tripick: 1,
+  'Semi Design': 2,
+  '设计稿转代码': 3,
+  'Quick Replace Font': 4,
+  'create-figma-app': 5,
 };
 
 const PROJECT_NAMES_EN: Record<string, string> = {
@@ -26,7 +29,7 @@ const PROJECT_NAMES_EN: Record<string, string> = {
 
 export default function Project(props: ProjectProps) {
   const { language, t } = useLanguage();
-  const { name, tags, githubUrl, relatedUrl, displayImageUrl, displayImageBgColor } = props;
+  const { name, tags, githubUrl, relatedUrl, displayImageUrl, displayImageBgColor, descriptionKey, relatedLabelKey } = props;
   const displayName = language === 'en' ? PROJECT_NAMES_EN[name] || name : name;
 
   const handleMouseMove = (event: ReactMouseEvent<HTMLElement>) => {
@@ -49,35 +52,46 @@ export default function Project(props: ProjectProps) {
     event.currentTarget.style.removeProperty('--card-rotate-y');
   };
 
+  const projectImage = <ProjectImage imageUrl={displayImageUrl} bgColor={displayImageBgColor} />;
+
   return (
     <article className="project-card" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-      <a className="project-media-link" href={relatedUrl} target="_blank" rel="noreferrer" aria-label={`${t('project.open')} ${displayName}`}>
-        <ProjectImage imageUrl={displayImageUrl} bgColor={displayImageBgColor} />
-      </a>
+      {relatedUrl ? (
+        <a className="project-media-link" href={relatedUrl} target="_blank" rel="noreferrer" aria-label={`${t('project.open')} ${displayName}`}>
+          {projectImage}
+        </a>
+      ) : (
+        <div className="project-media-link">{projectImage}</div>
+      )}
       <div className="project-card-body">
         <div className="project-card-heading">
           <div>
             <p className="project-index">PROJECT / 0{PROJECTS_INDEX[name] ?? 1}</p>
             <h3>{displayName}</h3>
           </div>
-          <a className="project-open" href={relatedUrl} target="_blank" rel="noreferrer" aria-label={`${t('project.open')} ${displayName}`}>
-            ↗
-          </a>
+          {relatedUrl && (
+            <a className="project-open" href={relatedUrl} target="_blank" rel="noreferrer" aria-label={`${t('project.open')} ${displayName}`}>
+              ↗
+            </a>
+          )}
         </div>
         <div className="project-tags">
           {tags.map((tagName) => (
             <ProjectTag name={tagName} key={tagName} />
           ))}
         </div>
+        {descriptionKey && <p className="project-description">{t(descriptionKey)}</p>}
         <div className="project-card-links">
           {githubUrl && (
             <a href={githubUrl} target="_blank" rel="noreferrer">
               {t('project.github')} <span aria-hidden="true">↗</span>
             </a>
           )}
-          <a href={relatedUrl} target="_blank" rel="noreferrer">
-            {t('project.view')} <span aria-hidden="true">↗</span>
-          </a>
+          {relatedUrl && (
+            <a href={relatedUrl} target="_blank" rel="noreferrer">
+              {t(relatedLabelKey || 'project.view')} <span aria-hidden="true">↗</span>
+            </a>
+          )}
         </div>
       </div>
     </article>
