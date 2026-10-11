@@ -8,6 +8,7 @@ const PROJECTS: ProjectProps[] = [
     displayImageUrl: tripickIconUrl,
     displayImageBgColor: '#F5F1E8',
     relatedUrl: 'https://apps.apple.com/us/app/tripick/id6817152211',
+    articleUrl: 'https://juejin.cn/post/7694928236116443146',
     descriptionKey: 'project.tripick.description',
     relatedLabelKey: 'project.tripick.store',
   },

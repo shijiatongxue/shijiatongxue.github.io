@@ -39,6 +39,15 @@ function formatData(rawData: Record<string, any>): Blog {
 
 let list: Blog[] = [
   {
+    title: '前端工程师第一次做原生 iOS App：我用 Codex App 做 Tripick',
+    titleEn: 'My First Native iOS App: Building Tripick with Codex App',
+    description: '从没有 iOS 开发经验开始，记录用 Codex App 构建 Tripick、处理照片权限与设备端分析，并走过测试和商店发布的过程。',
+    descriptionEn: 'A first-hand account of building Tripick with Codex App, handling Photos permissions and on-device analysis, and taking the app through testing and store release.',
+    coverUrl: 'https://site-1307850796.cos.ap-beijing.myqcloud.com/assets/tripick-icon-80bd33c6.png',
+    createTime: new Date('2026/10/11'),
+    url: 'https://juejin.cn/post/7694928236116443146',
+  },
+  {
     title: 'Semi D2C 设计稿转代码的演进之路',
     titleEn: 'The evolution of Semi D2C: from design to code',
     description: '介绍 Semi D2C 的能力边界、探索历程、实现原理',

@@ -10,6 +10,7 @@ export interface ProjectProps {
   displayImageUrl: string;
   displayImageBgColor?: ProjectImageProps['bgColor'] | string;
   relatedUrl?: string;
+  articleUrl?: string;
   githubUrl?: string;
   descriptionKey?: string;
   relatedLabelKey?: string;
@@ -29,7 +30,7 @@ const PROJECT_NAMES_EN: Record<string, string> = {
 
 export default function Project(props: ProjectProps) {
   const { language, t } = useLanguage();
-  const { name, tags, githubUrl, relatedUrl, displayImageUrl, displayImageBgColor, descriptionKey, relatedLabelKey } = props;
+  const { name, tags, githubUrl, relatedUrl, articleUrl, displayImageUrl, displayImageBgColor, descriptionKey, relatedLabelKey } = props;
   const displayName = language === 'en' ? PROJECT_NAMES_EN[name] || name : name;
 
   const handleMouseMove = (event: ReactMouseEvent<HTMLElement>) => {
@@ -90,6 +91,11 @@ export default function Project(props: ProjectProps) {
           {relatedUrl && (
             <a href={relatedUrl} target="_blank" rel="noreferrer">
               {t(relatedLabelKey || 'project.view')} <span aria-hidden="true">↗</span>
+            </a>
+          )}
+          {articleUrl && (
+            <a href={articleUrl} target="_blank" rel="noreferrer">
+              {t('project.tripick.notes')} <span aria-hidden="true">↗</span>
             </a>
           )}
         </div>
