@@ -1,8 +1,6 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy static content
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ['master']
     paths:
@@ -11,6 +9,7 @@ on:
       - 'static/**'
       - 'assets/**'
       - 'scripts/**'
+      - '.github/workflows/static.yml'
       - 'index.html'
       - 'CNAME'
       - 'package.json'
@@ -19,51 +18,87 @@ on:
       - 'postcss.config.*'
       - 'tailwind.config.*'
       - 'tsconfig*.json'
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: 'pages'
+  group: pages
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 7.33.7
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+        env:
+          COS_TOKEN: ${{ secrets.COS_TOKEN }}
+      - name: Upload and verify COS assets
+        run: pnpm uploadStatic
+        env:
+          COSSecretId: ${{ secrets.COSSecretId }}
+          COSSecretKey: ${{ secrets.COSSecretKey }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: docs/
+          if-no-files-found: error
+
+  deploy-pages:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: docs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - uses: actions/deploy-pages@v4
+        id: deployment
+
+  deploy-cloudbase:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - uses: actions/setup-node@v2
+      - uses: actions/download-artifact@v4
         with:
-          node-version: '16'
-      - run: npm install
-      - run: npm run build
+          name: site-dist
+          path: docs
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install CloudBase CLI
+        run: npm install --global @cloudbase/cli@3.8.6
+      - name: Verify CloudBase credential scope
         env:
-          COS_TOKEN: ${{ secrets.COS_TOKEN }}
-      - run: npm run uploadStatic
-        env:
-          COS_TOKEN: ${{ secrets.COS_TOKEN }}
           COSSecretId: ${{ secrets.COSSecretId }}
           COSSecretKey: ${{ secrets.COSSecretKey }}
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: './docs'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        run: |
+          test -n "$COSSecretId" && test -n "$COSSecretKey"
+          tcb login --apiKeyId "$COSSecretId" --apiKey "$COSSecretKey"
+          tcb env list -r ap-shanghai --json > /tmp/cloudbase-envs.json
+          node -e 'const fs=require("fs");const data=JSON.parse(fs.readFileSync("/tmp/cloudbase-envs.json","utf8"));const envs=data.data||data.envList||[];if(!envs.some(env=>env.EnvId==="cloudbase-sh-d1gv5ic4p909e0a3c"&&env.Status==="NORMAL")){console.error("CloudBase credentials cannot verify the target environment; refusing to publish HTML.");process.exit(1)}'
+      - name: Publish only the built HTML after COS verification
+        env:
+          COSSecretId: ${{ secrets.COSSecretId }}
+          COSSecretKey: ${{ secrets.COSSecretKey }}
+        run: tcb hosting deploy ./docs/index.html index.html --env-id cloudbase-sh-d1gv5ic4p909e0a3c --verify --json

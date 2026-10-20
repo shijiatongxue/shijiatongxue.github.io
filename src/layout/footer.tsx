@@ -15,6 +15,9 @@ export default function Footer() {
         <a href="https://github.com/shijiatongxue" target="_blank" rel="noreferrer">
           {t('footer.github')} <span aria-hidden="true">↗</span>
         </a>
+        <a href="https://beian.miit.gov.cn" target="_blank" rel="noreferrer">
+          京ICP备2026070296号-1
+        </a>
       </div>
     </footer>
   );
