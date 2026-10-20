@@ -76,10 +76,10 @@ async function main() {
     const key = `${assetDir}/${file}`;
     const localSize = fs.statSync(path.join(staticDir, file)).size;
     const remote = await callCos('headObject', { Bucket, Region, Key: key });
-    const remoteSize = Number(remote.ContentLength);
+    const remoteSize = Number(remote.headers?.['content-length']);
     if (!Number.isFinite(remoteSize) || remoteSize !== localSize) {
       throw new Error(
-        `COS verification failed for ${key}: local=${localSize}, remote=${remote.ContentLength}`
+        `COS verification failed for ${key}: local=${localSize}, remote=${remote.headers?.['content-length']}`
       );
     }
     console.log(`Verified ${key} (${remoteSize} bytes)`);
